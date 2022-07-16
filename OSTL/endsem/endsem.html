@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>OSTL END SEM</title>
+	</head>
+		<style>
+		h1 {
+			color: red;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.row {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: flex-start;
+		}
+
+		input {
+			width: 10rem;
+		}
+
+		select {
+			width: 5%;
+		}
+
+		button {
+			width: 8%;
+		}
+
+		.radio input {
+			width: auto;
+		}
+
+		canvas {
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+	</style>
+	<body>
+		
+		<canvas id="canvas"></canvas>
+		<h1>Ticket Booking Form</h1>
+		<form>
+			<label for="name">Name</label>
+			<input name="name" type="text" />
+			<label for="age">Age:</label>
+			<input name="age" type="text" />
+			<label for="sex">Sex:</label>
+			<div class="radio">
+				<input type="radio" id="male" name="sex" value="male" />
+				<label for="male">MALE</label><br />
+				<input type="radio" id="female" name="sex" value="female" />
+				<label for="female">FEMALE</label><br />
+				<input type="radio" id="other" name="sex" value="other" />
+				<label for="other">OTHER</label>
+			</div>
+
+			<label for="city">Enter the Source City</label>
+			<input name="source-city" type="text" />
+			<label for="city">Enter the Destination City</label>
+			<input type="text" name="destination-city" id="destination-city" />
+			<label for="tickets">Select the number of tickets to be booked</label>
+			<select name="tickets" id="tickets">
+				
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+			</select>
+			<input type="submit" value="Submit" />
+		</form>
+	</body>
+	<script>
+		
+		var form = document.querySelector("form");
+		form.addEventListener("submit", function (e) {
+			e.preventDefault();
+			var name = document.querySelector("input[name=name]").value;
+			var age = document.querySelector("input[name=age]").value;
+			var sex = document.querySelector("input[name=sex]:checked").value;
+			var sourceCity = document.querySelector("input[name=source-city]").value;
+			var destCity = document.querySelector(
+				"input[name=destination-city]"
+			).value;
+			var tickets = document.querySelector("select[name=tickets]").value;
+			if (age < 25) {
+				alert("Invalid age Input cannot book tickets");
+			} else {
+				
+				switch (sex) {
+					case "male": {
+						alert(
+							"Mr " +
+								name +
+								" has booked " +
+								tickets +
+								" from " +
+								sourceCity +
+								" to " +
+								destCity
+						);
+						break;
+					}
+					case "female": {
+						alert(
+							"Mrs " +
+								name +
+								" has booked " +
+								tickets +
+								" from " +
+								sourceCity +
+								" to " +
+								destCity
+						);
+						break;
+					}
+					case "other": {
+						alert(
+							name +
+								" has booked " +
+								tickets +
+								" from " +
+								sourceCity +
+								" to " +
+								destCity
+						);
+						break;
+					}
+				}
+			}
+		});
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		ctx.fillStyle = "yellow";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+	</script>
+	</body>
+</html>
