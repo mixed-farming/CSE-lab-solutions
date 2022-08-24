@@ -1,0 +1,131 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 10001000        DCD              0x10001000  ;stack pointer valu
+                                                            e when stack is emp
+                                                            ty
+    6 00000004 00000000        DCD              Reset_Handler ;reset vector
+    7 00000008                 ALIGN
+    8 00000008                 AREA             mycode,CODE,READONLY
+    9 00000000                 ENTRY
+   10 00000000                 EXPORT           Reset_Handler
+   11 00000000         
+   12 00000000         Reset_Handler
+   13 00000000 4803            LDR              R0, =SRC    ; Load address of S
+                                                            RC into R0
+   14 00000002 4904            LDR              R1, =DST    ; Load the address 
+                                                            of DST onto R1 
+   15 00000004 6803            LDR              R3, [R0]    ; Load data pointed
+                                                             by R0 into R3
+   16 00000006 600B            STR              R3,[R1]     ; Store data from R
+                                                            3 into the address 
+                                                            pointed by R1
+   17 00000008         STOP
+   18 00000008 E7FE            B                STOP        ;Be there
+   19 0000000A 00 00 00BC614E 
+                       SRC     DCD              12345678    ;SRC location in co
+                                                            de memory
+   20 00000010 00000000 
+              00000000         AREA             mydata,DATA,READWRITE
+   21 00000000 00000000 
+                       DST     DCD              0           ;DST location in da
+                                                            ta memory
+   22 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\solved
+_exercise.d -o.\solved_exercise.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\In
+clude -IC:\Keil\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=.\solved
+_exercise.lst solved_exercise.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file solved_exercise.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file solved_exercise.s
+   Uses
+      At line 2 in file solved_exercise.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file solved_exercise.s
+   Uses
+      At line 6 in file solved_exercise.s
+      At line 10 in file solved_exercise.s
+
+SRC 0000000C
+
+Symbol: SRC
+   Definitions
+      At line 19 in file solved_exercise.s
+   Uses
+      At line 13 in file solved_exercise.s
+Comment: SRC used once
+STOP 00000008
+
+Symbol: STOP
+   Definitions
+      At line 17 in file solved_exercise.s
+   Uses
+      At line 18 in file solved_exercise.s
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 8 in file solved_exercise.s
+   Uses
+      None
+Comment: mycode unused
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DST 00000000
+
+Symbol: DST
+   Definitions
+      At line 21 in file solved_exercise.s
+   Uses
+      At line 14 in file solved_exercise.s
+Comment: DST used once
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 20 in file solved_exercise.s
+   Uses
+      None
+Comment: mydata unused
+2 symbols
+341 symbols in table
