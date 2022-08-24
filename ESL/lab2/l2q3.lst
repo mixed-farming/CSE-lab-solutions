@@ -1,0 +1,135 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0X10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             MYCODE,CODE,READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         Reset_Handler
+   11 00000000 4807            LDR              R0, =VAL1
+   12 00000002 4908            LDR              R1, =VAL2
+   13 00000004 4A08            LDR              R2, =DST
+   14 00000006 6804            LDR              R4,[R0]
+   15 00000008 680D            LDR              R5,[R1]
+   16 0000000A 1B63            SUBS             R3,R4,R5
+   17 0000000C F146 0600       ADC              R6,#0
+   18 00000010 F842 3B04       STR              R3,[R2],#4
+   19 00000014 6016            STR              R6,[R2]
+   20 00000016         STOP
+   21 00000016 E7FE            B                STOP
+   22 00000018 77777777 
+                       VAL1    DCD              0x77777777
+   23 0000001C 12121212 
+                       VAL2    DCD              0x12121212
+   24 00000020 00000000 
+              00000000 
+              00000000         AREA             MYDATA, DATA, READWRITE
+   25 00000000 00000000 
+                       DST     DCD              0
+   26 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\l2q3.d
+ -o.\l2q3.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\In
+c\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=.\l2q3.lst l2q3.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file l2q3.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file l2q3.s
+   Uses
+      At line 2 in file l2q3.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MYCODE 00000000
+
+Symbol: MYCODE
+   Definitions
+      At line 7 in file l2q3.s
+   Uses
+      None
+Comment: MYCODE unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file l2q3.s
+   Uses
+      At line 5 in file l2q3.s
+      At line 9 in file l2q3.s
+
+STOP 00000016
+
+Symbol: STOP
+   Definitions
+      At line 20 in file l2q3.s
+   Uses
+      At line 21 in file l2q3.s
+Comment: STOP used once
+VAL1 00000018
+
+Symbol: VAL1
+   Definitions
+      At line 22 in file l2q3.s
+   Uses
+      At line 11 in file l2q3.s
+Comment: VAL1 used once
+VAL2 0000001C
+
+Symbol: VAL2
+   Definitions
+      At line 23 in file l2q3.s
+   Uses
+      At line 12 in file l2q3.s
+Comment: VAL2 used once
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DST 00000000
+
+Symbol: DST
+   Definitions
+      At line 25 in file l2q3.s
+   Uses
+      At line 13 in file l2q3.s
+Comment: DST used once
+MYDATA 00000000
+
+Symbol: MYDATA
+   Definitions
+      At line 24 in file l2q3.s
+   Uses
+      None
+Comment: MYDATA unused
+2 symbols
+342 symbols in table

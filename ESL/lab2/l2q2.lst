@@ -1,0 +1,157 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0X10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             MYCODE,CODE,READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         Reset_Handler
+   11 00000000 4815            LDR              R0, =VAL1
+   12 00000002 4916            LDR              R1, =VAL2
+   13 00000004 4A16            LDR              R2, =DST
+   14 00000006 F04F 0304       LDR              R3,=4       ;Counter
+   15 0000000A F04F 0700       MOV              R7,#0       ;Carry
+   16 0000000E F850 4B04 
+                       UP      LDR              R4, [R0],#4
+   17 00000012 F851 5B04       LDR              R5, [R1],#4
+   18 00000016 EB17 0804       ADDS             R8,R7,R4
+   19 0000001A F04F 0700       MOV              R7,#0
+   20 0000001E F147 0700       ADC              R7,#0
+   21 00000022 EB18 0805       ADDS             R8,R5
+   22 00000026 F147 0700       ADC              R7,#0
+   23 0000002A F842 8B04       STR              R8,[R2],#4
+   24 0000002E 3B01            SUBS             R3, #1
+   25 00000030 D1ED            BNE              UP
+   26 00000032 6017            STR              R7,[R2]
+   27 00000034         STOP
+   28 00000034 E7FE            B                STOP
+   29 00000036 00 00 44444444 
+              33333333 
+              22222222 
+              FFFFFFFF VAL1    DCD              0x44444444,0x33333333,0x2222222
+2,0xFFFFFFFF
+   30 00000048 11111111 
+              22222222 
+              33333333 
+              FFFFFFFF VAL2    DCD              0x11111111,0x22222222,0x3333333
+3,0xFFFFFFFF
+   31 00000058 00000000 
+              00000000 
+              00000000         AREA             MYDATA, DATA, READWRITE
+   32 00000000 00000000 
+                       DST     DCD              0
+   33 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\l2q2.d
+ -o.\l2q2.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\In
+c\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=.\l2q2.lst l2q2.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file l2q2.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file l2q2.s
+   Uses
+      At line 2 in file l2q2.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MYCODE 00000000
+
+Symbol: MYCODE
+   Definitions
+      At line 7 in file l2q2.s
+   Uses
+      None
+Comment: MYCODE unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file l2q2.s
+   Uses
+      At line 5 in file l2q2.s
+      At line 9 in file l2q2.s
+
+STOP 00000034
+
+Symbol: STOP
+   Definitions
+      At line 27 in file l2q2.s
+   Uses
+      At line 28 in file l2q2.s
+Comment: STOP used once
+UP 0000000E
+
+Symbol: UP
+   Definitions
+      At line 16 in file l2q2.s
+   Uses
+      At line 25 in file l2q2.s
+Comment: UP used once
+VAL1 00000038
+
+Symbol: VAL1
+   Definitions
+      At line 29 in file l2q2.s
+   Uses
+      At line 11 in file l2q2.s
+Comment: VAL1 used once
+VAL2 00000048
+
+Symbol: VAL2
+   Definitions
+      At line 30 in file l2q2.s
+   Uses
+      At line 12 in file l2q2.s
+Comment: VAL2 used once
+6 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DST 00000000
+
+Symbol: DST
+   Definitions
+      At line 32 in file l2q2.s
+   Uses
+      At line 13 in file l2q2.s
+Comment: DST used once
+MYDATA 00000000
+
+Symbol: MYDATA
+   Definitions
+      At line 31 in file l2q2.s
+   Uses
+      None
+Comment: MYDATA unused
+2 symbols
+343 symbols in table
