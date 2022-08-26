@@ -1,0 +1,123 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0X10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 AREA             MYCODE, CODE, READONLY
+    7 00000000                 ENTRY
+    8 00000000                 EXPORT           Reset_Handler
+    9 00000000         Reset_Handler
+   10 00000000 4808            LDR              R0, =0x0F0A0F01
+   11 00000002 F04F 010F       LDR              R1, =0x0000000F
+   12 00000006 4D08            LDR              R5,=DST
+   13 00000008 F04F 0404       MOV              R4, #4
+   14 0000000C EA00 0201 
+                       UP      AND              R2, R0, R1
+   15 00000010 EA4F 1101       LSL              R1, #4
+   16 00000014 EA4F 1010       LSR              R0, #4
+   17 00000018 EA43 0302       ORR              R3, R2
+   18 0000001C 3C01            SUBS             R4, #1
+   19 0000001E D1F5            BNE              UP
+   20 00000020 602B            STR              R3,[R5]
+   21 00000022 E7FE    STOP    B                STOP
+   22 00000024 0F0A0F01 
+              00000000         AREA             MYDATA, DATA, READWRITE
+   23 00000000 00000000 
+                       DST     DCD              0
+   24 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\l3q5.d
+ -o.\l3q5.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\In
+c\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=.\l3q5.lst l3q5.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file l3q5.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file l3q5.s
+   Uses
+      At line 2 in file l3q5.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MYCODE 00000000
+
+Symbol: MYCODE
+   Definitions
+      At line 6 in file l3q5.s
+   Uses
+      None
+Comment: MYCODE unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 9 in file l3q5.s
+   Uses
+      At line 5 in file l3q5.s
+      At line 8 in file l3q5.s
+
+STOP 00000022
+
+Symbol: STOP
+   Definitions
+      At line 21 in file l3q5.s
+   Uses
+      At line 21 in file l3q5.s
+Comment: STOP used once
+UP 0000000C
+
+Symbol: UP
+   Definitions
+      At line 14 in file l3q5.s
+   Uses
+      At line 19 in file l3q5.s
+Comment: UP used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DST 00000000
+
+Symbol: DST
+   Definitions
+      At line 23 in file l3q5.s
+   Uses
+      At line 12 in file l3q5.s
+Comment: DST used once
+MYDATA 00000000
+
+Symbol: MYDATA
+   Definitions
+      At line 22 in file l3q5.s
+   Uses
+      None
+Comment: MYDATA unused
+2 symbols
+341 symbols in table

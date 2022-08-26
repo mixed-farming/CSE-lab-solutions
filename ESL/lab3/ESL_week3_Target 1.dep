@@ -1,0 +1,2 @@
+Dependencies for Project 'ESL_week3', Target 'Target 1': (DO NOT MODIFY !)
+F (.\l3q5.s)(0x62458C03)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\NXP\LPC17xx--list .\l3q5.lst --xref -o .\l3q5.o --depend .\l3q5.d)

@@ -1,0 +1,145 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 40001000        DCD              0x40001000  ; stack pointer val
+                                                            ue when stack is em
+                                                            pty
+    5 00000004 00000000        DCD              Reset_Handler ; reset vector
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode, CODE, READONLY
+    8 00000000                 ENTRY
+    9 00000000                 EXPORT           Reset_Handler
+   10 00000000         Reset_Handler
+   11 00000000 4807            LDR              R0, =VAL1   ;pointer to the fir
+                                                            st value1
+   12 00000002 4908            LDR              R1,=VAL2    ;pointer to the sec
+                                                            ond value
+   13 00000004 6802            LDR              R2,[R0]
+   14 00000006 680B            LDR              R3,[R1]
+   15 00000008 FBA2 4503       UMULL            R4,R5,R2,R3 ;Multiply the value
+                                                            s from R1 and R2 an
+                                                            d store 
+   16 0000000C         ;least significant 32 bit number into R3 and most
+   17 0000000C         ;significant 32 bit number into R4.
+   18 0000000C 4E06            LDR              R6,=RESULT
+   19 0000000E F846 4B04       STR              R4, [R6],#4
+   20 00000012 6035            STR              R5,[R6]     ; store result in m
+                                                            emory
+   21 00000014         STOP
+   22 00000014 E7FE            B                STOP
+   23 00000016 00 00 12346789 
+                       VAL1    DCD              0x12346789  ; First 32 bit numb
+                                                            er
+   24 0000001C 456789AB 
+                       VAL2    DCD              0x456789AB  ; Second 32 bit num
+                                                            ber 
+   25 00000020 00000000 
+              00000000 
+              00000000         AREA             data, DATA, READWRITE
+   26 00000000 00000000 
+                       RESULT  DCD              0
+   27 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\l3ex.d
+ -o.\l3ex.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\In
+c\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=.\l3ex.lst l3ex.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file l3ex.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file l3ex.s
+   Uses
+      At line 2 in file l3ex.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file l3ex.s
+   Uses
+      At line 5 in file l3ex.s
+      At line 9 in file l3ex.s
+
+STOP 00000014
+
+Symbol: STOP
+   Definitions
+      At line 21 in file l3ex.s
+   Uses
+      At line 22 in file l3ex.s
+Comment: STOP used once
+VAL1 00000018
+
+Symbol: VAL1
+   Definitions
+      At line 23 in file l3ex.s
+   Uses
+      At line 11 in file l3ex.s
+Comment: VAL1 used once
+VAL2 0000001C
+
+Symbol: VAL2
+   Definitions
+      At line 24 in file l3ex.s
+   Uses
+      At line 12 in file l3ex.s
+Comment: VAL2 used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file l3ex.s
+   Uses
+      None
+Comment: mycode unused
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESULT 00000000
+
+Symbol: RESULT
+   Definitions
+      At line 26 in file l3ex.s
+   Uses
+      At line 18 in file l3ex.s
+Comment: RESULT used once
+data 00000000
+
+Symbol: data
+   Definitions
+      At line 25 in file l3ex.s
+   Uses
+      None
+Comment: data unused
+2 symbols
+342 symbols in table

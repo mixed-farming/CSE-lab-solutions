@@ -1,0 +1,137 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, CODE, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0x10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 AREA             myCode, CODE, READONLY
+    7 00000000                 ENTRY
+    8 00000000                 EXPORT           Reset_Handler
+    9 00000000         Reset_Handler
+   10 00000000 480D            LDR              R0, =DST
+   11 00000002 F240 51AB       MOV              R1, #0x5AB
+   12 00000006 F04F 0200       MOV              R2, #0
+   13 0000000A F04F 030A       MOV              R3, #10
+   14 0000000E 290A    Up      CMP              R1, #0xA
+   15 00000010 D304            BCC              Sto
+   16 00000012 F1A1 010A       SUB              R1, #0xA
+   17 00000016 F102 0201       ADD              R2, #1
+   18 0000001A E7F8            B                Up
+   19 0000001C F101 0130 
+                       Sto     ADD              R1, #0x30
+   20 00000020 F800 1B01       STRB             R1, [R0], #1
+   21 00000024 4611            MOV              R1, R2
+   22 00000026 F04F 0200       MOV              R2, #0
+   23 0000002A 290A            CMP              R1, #0xA
+   24 0000002C D2EF            BCS              Up
+   25 0000002E F101 0130       ADD              R1,#0x30
+   26 00000032 7001            STRB             R1,[R0]
+   27 00000034 E7FE    STOP    B                STOP
+   28 00000036 00 00 00000000  AREA             MYDATA, DATA, READWRITE
+   29 00000000 00000000 
+                       DST     DCD              0x0
+   30 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\l3q4.d
+ -o.\l3q4.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\In
+c\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=.\l3q4.lst l3q4.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file l3q4.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file l3q4.s
+   Uses
+      At line 2 in file l3q4.s
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 9 in file l3q4.s
+   Uses
+      At line 5 in file l3q4.s
+      At line 8 in file l3q4.s
+
+STOP 00000034
+
+Symbol: STOP
+   Definitions
+      At line 27 in file l3q4.s
+   Uses
+      At line 27 in file l3q4.s
+Comment: STOP used once
+Sto 0000001C
+
+Symbol: Sto
+   Definitions
+      At line 19 in file l3q4.s
+   Uses
+      At line 15 in file l3q4.s
+Comment: Sto used once
+Up 0000000E
+
+Symbol: Up
+   Definitions
+      At line 14 in file l3q4.s
+   Uses
+      At line 18 in file l3q4.s
+      At line 24 in file l3q4.s
+
+myCode 00000000
+
+Symbol: myCode
+   Definitions
+      At line 6 in file l3q4.s
+   Uses
+      None
+Comment: myCode unused
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DST 00000000
+
+Symbol: DST
+   Definitions
+      At line 29 in file l3q4.s
+   Uses
+      At line 10 in file l3q4.s
+Comment: DST used once
+MYDATA 00000000
+
+Symbol: MYDATA
+   Definitions
+      At line 28 in file l3q4.s
+   Uses
+      None
+Comment: MYDATA unused
+2 symbols
+342 symbols in table
