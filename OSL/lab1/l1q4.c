@@ -7,8 +7,6 @@
 int main(int argc, char *argv[]){
 	char c;
 	int in,out;
-	char buffer[128];
-	int nread;
 	if(argc!=3){
 		printf("\nInsufficient Arguments\n");
 		exit(1);
