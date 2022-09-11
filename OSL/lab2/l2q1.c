@@ -5,12 +5,7 @@
 #include <stdlib.h>
 #include <dirent.h>
 #include <time.h>
-#include <string.h>
-#include <pwd.h>
-#include <grp.h>
-#include <locale.h>
-#include <langinfo.h>
-#include <stdint.h>
+
 char const *perms(__mode_t mode){
 	static char local_buff[16] = {0};
 	int i = 0;
