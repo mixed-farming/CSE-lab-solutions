@@ -1,0 +1,12 @@
+There were two questions
+
+1) (Execution + Write up) - 7M + 4M
+   Take a string input of length divisible by 2. Write a multithreaded program to replace even positions by '$' ny one thread and odd positions replaced by '$' using another thread.
+   Sample input : MITMANIPAL
+   Output of 1st thread : M$T$A$I$A$
+   Output of 2nd thread : $I$M$N$P$L
+   
+2) (Only write up) - 4M
+   Get a path to a directory via command line input and display the list of all the contents present in the directory. Also show the number of subdirectories (S_ISDIR) and pipes (S_ISFIFO) present.
+   
+   
