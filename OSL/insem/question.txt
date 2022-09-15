@@ -1,7 +1,7 @@
 There were two questions
 
 1) (Execution + Write up) - 7M + 4M
-   Take a string input of length divisible by 2. Write a multithreaded program to replace even positions by '$' ny one thread and odd positions replaced by '$' using another thread.
+   Take a string input of length divisible by 2. Write a multithreaded program to replace even positions by '$' in one thread and odd positions replaced by '$' using another thread.
    Sample input : MITMANIPAL
    Output of 1st thread : M$T$A$I$A$
    Output of 2nd thread : $I$M$N$P$L
