@@ -1,0 +1,9 @@
+Write a concurrent client-server program which accepts an array of 6 odd numbers in the interval (x,y) from client element by element, where 
+x and y is the input on the client side and they specify the range of input. The server should be able to manage exactly two client requests and should send back 
+to the client the sorted array.
+
+eg : 
+x=20, y=50
+
+input : 21, 49, 59, 57, 55, 53, 51, 23, 47, 25, 45
+output : 21, 23, 25, 45, 47, 49
