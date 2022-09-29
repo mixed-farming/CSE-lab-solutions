@@ -1,0 +1,21 @@
+<?php
+$tutors = array();
+function characterData($parser,$data){
+    global $tutors,$elements;
+}
+$parser = xml_parser+create();
+xml_set_element_handler($parser);
+xml_set_character_data_handler($parser,"characterData");
+
+if(!($handle = fopen('sax.xml',"r"))){
+    print("could not open xml input");
+}
+while(($data = fread($handle,4096))){
+    xml_parse($parser,$data);
+}
+foreach($tutor as $course)
+{
+    echo "course Name - ".$course['NAME'];
+    $i++;
+}
+?> 
