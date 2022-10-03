@@ -32,11 +32,11 @@ Concepts : Shell Scripting, Debugging, Git, Introduction to LaTeX, HTML, CSS, Ja
 Design and Analysis of some Algorithms in 'C' Language.<br>
 Concepts : Brute force, Decrease & conquer, Divide & conquer, Transform & conquer, Space & time tradeoffs, etc.
 
-<!-- ### _Database Systems Lab (DBS) :_ 
-These SQL Programs were executed on Oracle Database ( Version used in Labs : Orcale 11G XE )
-
 ### _Embedded Systems Lab (ES) :_ 
 These programs are executed using Keil microVision4, NXP, LPC1768 in ARM Assembly Language and Embedded 'C'. 
+
+<!-- ### _Database Systems Lab (DBS) :_ 
+These SQL Programs were executed on Oracle Database ( Version used in Labs : Orcale 11G XE )
 
 ## _5th Semester :_
 
