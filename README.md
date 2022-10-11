@@ -35,7 +35,11 @@ Design and Analysis of some Algorithms in 'C' Language.<br>
 Concepts : Brute force, Decrease & conquer, Divide & conquer, Transform & conquer, Space & time tradeoffs, etc.
 
 ### _Embedded Systems Lab (ES) :_ 
-These programs are executed using Keil microVision4, NXP, LPC1768 in ARM Assembly Language and Embedded 'C'. 
+These programs are executed using Keil microVision4, NXP, LPC1768 in ARM Assembly Language and Embedded 'C'. <br>
+Concepts : <br>
+i) Introduction to Keil microVision4, Data transfer instrcutions, logical instructions, arithmetic instrcutions, branching, looping, sorting and searching algorithms using registers. <br>
+ii) Interfacing LED to ARM microcontroller, Multiplexed 7-segment display, LCD and keyboard interfacing.<br>
+
 
 ### _Database Systems Lab (DBS) :_ 
 These SQL Programs were executed on Oracle Database <br>
