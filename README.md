@@ -20,7 +20,7 @@ Concepts : Inheritence, Interfacing, Polymorphism, Multithreading, Generics, Jav
 ### _Digital System Design Lab (DSDL) :_ 
 Programs for logic design using Verilog.<br>
 Concepts : K-maps, Arithmetic circuits, Multiplexers, Decoders and encoders, Flip-flops and registers, Counters, Simple processor, etc <br>
-Software : Max + plus 2
+Software : .[Max + plus 2].(https://drive.google.com/file/d/1xIe0Iwcshw5QBu3qQCElQYvg4hfgJ7_F/view)
 
 ### _Open Source Technologies Lab (OSTL) :_ 
 Introduction to Ubuntu, an open-source software.<br>
