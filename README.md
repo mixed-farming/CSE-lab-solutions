@@ -19,7 +19,7 @@ Concepts : Inheritence, Interfacing, Polymorphism, Multithreading, Generics, Jav
 
 ### _Digital System Design Lab (DSDL) :_ 
 Programs for logic design using Verilog.<br>
-Concepts : K-maps, Arithmetic circuits, Multiplexers, Decoders and encoders, Flip-flops and registers, Counters, Simple processor, etc.
+Concepts : K-maps, Arithmetic circuits, Multiplexers, Decoders and encoders, Flip-flops and registers, Counters, Simple processor, etc <br>
 Software : Max + plus 2
 
 ### _Open Source Technologies Lab (OSTL) :_ 
@@ -37,7 +37,7 @@ Concepts : Brute force, Decrease & conquer, Divide & conquer, Transform & conque
 These programs are executed using Keil microVision4, NXP, LPC1768 in ARM Assembly Language and Embedded 'C'. 
 
 ### _Database Systems Lab (DBS) :_ 
-These SQL Programs were executed on Oracle Database 
+These SQL Programs were executed on Oracle Database <br>
 Software : [Oracle 11g Express Edition](https://goo.gl/JnzsbF)
 
 <!-- 
