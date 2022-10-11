@@ -39,6 +39,7 @@ These programs are executed using Keil microVision4, NXP, LPC1768 in ARM Assembl
 Concepts : <br>
 i) Introduction to Keil microVision4, Data transfer instrcutions, logical instructions, arithmetic instrcutions, branching, looping, sorting and searching algorithms using registers. <br>
 ii) Interfacing LED to ARM microcontroller, Multiplexed 7-segment display, LCD and keyboard interfacing.<br>
+![LPC_1768_development_kit](https://user-images.githubusercontent.com/94393300/195183655-716d688f-6915-4cb8-bb75-bdd8b0cb3632.jpg)
 
 
 ### _Database Systems Lab (DBS) :_ 
