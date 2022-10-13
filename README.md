@@ -51,6 +51,8 @@ Software : [Oracle 11g Express Edition](https://goo.gl/JnzsbF)
 ## _5th Semester :_
 
 ### _Operating Systems Lab (OSL) :_
+Programming the concepts of threads, IPC’s and File systems in ‘C’ language.<br>
+Concepts : Working with regular files and directories, memory and data management, processes and signals, file systems, Inter-Process-Communications(PIPE, FIFO, Message queue, Shared memory, Deadlock, Locking synchronization), programs on threads, disk management.
 
 ### _Computer Networks Lab (CNL) :_
 
