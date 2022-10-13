@@ -1,7 +1,7 @@
 # **CSE-lab-solutions (2020-2024)**
 This repository contains all my lab manuals, codes, documents and endsem questions. These labs were conducted during my B.Tech in CSE (2020-2024)
 
-## 1st/2nd Semester :
+## _1st/2nd Semester :_
 
 ### _PSUC - Problem solving using computers :_ 
 Basics of C programming.<br>
@@ -48,14 +48,12 @@ ii) Interfacing LED to ARM microcontroller, Multiplexed 7-segment display, LCD a
 These SQL Programs were executed on Oracle Database <br>
 Software : [Oracle 11g Express Edition](https://goo.gl/JnzsbF)
 
-<!-- 
-
 ## _5th Semester :_
 
 ### _Operating Systems Lab (OSL) :_
 
 ### _Computer Networks Lab (CNL) :_
 
-### _Compiler Design Lab (CDL) :_ -->
+### _Compiler Design Lab (CDL) :_ 
 
 
