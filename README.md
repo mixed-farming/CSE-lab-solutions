@@ -41,7 +41,7 @@ i) Introduction to Keil microVision4, Data transfer instrcutions, logical instru
 ii) Interfacing LED to ARM microcontroller, Multiplexed 7-segment display, LCD and keyboard interfacing.<br>
 
 #### LPC_1768_development_kit :
-<p align="center"><img width="75%" src="https://user-images.githubusercontent.com/94393300/195184215-f5ca520b-62eb-43a0-8f32-dcf0972d781d.jpg" alt="Human audible range" />
+<p align="center"><img width="50%" height="50%" src="https://user-images.githubusercontent.com/94393300/195184215-f5ca520b-62eb-43a0-8f32-dcf0972d781d.jpg" alt="Human audible range" />
 
 
 ### _Database Systems Lab (DBS) :_ 
