@@ -21,7 +21,7 @@ Concepts : Inheritence, Interfacing, Polymorphism, Multithreading, Generics, Jav
 Programs for logic design using Verilog.<br>
 Concepts : K-maps, Arithmetic circuits, Multiplexers, Decoders and encoders, Flip-flops and registers, Counters, Simple processor, etc <br>
 Software : [Max+ plus 2](https://drive.google.com/file/d/1xIe0Iwcshw5QBu3qQCElQYvg4hfgJ7_F/view)
-Installation procedure : [Click here](https://www.youtube.com/watch?v=kDoc6PP3z34)
+Installation guide : [Click here](https://www.youtube.com/watch?v=kDoc6PP3z34)
 
 ### _Open Source Technologies Lab (OSTL) :_ 
 Introduction to Ubuntu, an open-source software.<br>
