@@ -55,7 +55,7 @@ Programming the concepts of threads, IPC’s and File systems in ‘C’ languag
 Concepts : Working with regular files and directories, Processes and Signals, Programs on Threads, File Systems, Inter-Process-Communications(PIPE, FIFO, Message queue, Shared memory, Deadlock, Locking synchronization), Memory and Data Management, Disk Management.
 
 ### _Computer Networks Lab (CNL) :_
-Programs in computer networking.<br>
+Programs on computer networking.<br>
 Concepts : Socket programming in C using TCP(iterative & concurrent) & UDP, Network data analysis using Wireshark and tcpdump, Computer network design hub/switch/router in GNS3, Study of DNS and DHCP, Introduction to NS2.
 
 ### _Compiler Design Lab (CDL) :_ 
