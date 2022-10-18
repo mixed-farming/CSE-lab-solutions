@@ -25,7 +25,7 @@ Programs for logic design.<br>
 Concepts : K-maps, Arithmetic circuits, Multiplexers, Decoders and encoders, Flip-flops and registers, Counters, Simple processor, etc <br>
 Language : Verilog<br>
 Software : [Max+ plus 2](https://drive.google.com/file/d/1xIe0Iwcshw5QBu3qQCElQYvg4hfgJ7_F/view)
-Installation guide : [Click here](https://www.youtube.com/watch?v=kDoc6PP3z34)
+Installation guide : [Click here](https://www.youtube.com/watch?v=0nMumibwhHg)
 
 ### _Open Source Technologies Lab (OSTL) :_ 
 Introduction to Ubuntu, an open-source software.<br>
