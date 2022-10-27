@@ -66,6 +66,10 @@ Language : C<br>
 ### _Computer Networks Lab (CNL) :_
 Programs on computer networking.<br>
 Concepts : Socket programming using TCP(iterative & concurrent) & UDP, Network data analysis using Wireshark and tcpdump, Computer network design hub/switch/router in GNS3, Study of DNS and DHCP, Introduction to NS2.<br>
+Software : <br>
+i) Wireshark
+ii) GNS3 on Ubuntu
+iii) NS2
 Language : C<br>
 
 ### _Compiler Design Lab (CDL) :_ 
