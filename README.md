@@ -66,13 +66,16 @@ Language : C<br>
 ### _Computer Networks Lab (CNL) :_
 Programs on computer networking.<br>
 Concepts : Socket programming using TCP(iterative & concurrent) & UDP, Network data analysis using Wireshark and tcpdump, Computer network design hub/switch/router in GNS3, Study of DNS and DHCP, Introduction to NS2.<br>
-Software : <br>
+Softwares : <br>
 i) Wireshark -> 
-   Installation guide : [Click here]() <br>
-ii) GNS3 on Ubuntu -> 
-   Installation guide : [Click here]() <br>
+   Open source packet analyzer : [Click here](https://www.wireshark.org/download.html) <br>
+   (The GNS3 setup comes with a Wireshark setup included by default) <br>
+ii) GNS3 - Graphical Network Simulator-3 -> 
+   Installation guide (on Ubuntu OS) : [Click here](https://www.youtube.com/watch?v=Ix02iFLIzlo) <br>
+   Download for windows : [GNS3](https://www.gns3.com/software/download) Installation guide : [Click here](https://www.youtube.com/watch?v=lFEDmM_lsxI) <br>
+   Router image : [Click here](https://drive.google.com/file/d/1vEeLDEF8njWWxfosJS0eA0lqpIxxLfWP/view?usp=sharing) <br>
 iii) NS2 ->
-   Installation guide : [Click here]() <br>
+   Installation guide : [Click here](https://www.youtube.com/watch?v=tH0yrJdovWM) <br>
 Language : C<br>
 
 ### _Compiler Design Lab (CDL) :_ 
