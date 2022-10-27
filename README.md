@@ -67,12 +67,12 @@ Language : C<br>
 Programs on computer networking.<br>
 Concepts : Socket programming using TCP(iterative & concurrent) & UDP, Network data analysis using Wireshark and tcpdump, Computer network design hub/switch/router in GNS3, Study of DNS and DHCP, Introduction to NS2.<br>
 Software : <br>
-i) Wireshark 
+i) Wireshark -> 
    Installation guide : [Click here]() <br>
-ii) GNS3 on Ubuntu
-   Installation guide : [Click here]()
-iii) NS2
-   Installation guide : [Click here]()
+ii) GNS3 on Ubuntu -> 
+   Installation guide : [Click here]() <br>
+iii) NS2 ->
+   Installation guide : [Click here]() <br>
 Language : C<br>
 
 ### _Compiler Design Lab (CDL) :_ 
