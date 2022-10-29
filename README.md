@@ -54,6 +54,7 @@ Lanaguage : ARM assembly, Embedded C<br>
 ### _Database Systems Lab (DBS) :_ 
 These SQL Programs were executed on Oracle Database <br>
 Software : [Oracle 11g Express Edition](https://goo.gl/JnzsbF)<br>
+Practice point : [Online SQL Compiler](https://www.tutorialspoint.com/execute_sql_online.php) <br>
 Language : SQL, PL/SQL<br>
 
 ## _5th Semester :_
