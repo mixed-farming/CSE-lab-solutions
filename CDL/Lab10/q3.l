@@ -9,7 +9,7 @@
         return NUM;
         }
 \n {return NL;}
-[+,*,-,/,^] {return OP;}
+"+"|"-"|"*"|"/"|"^" {return OP;}
 %%
 
 int yywrap()
