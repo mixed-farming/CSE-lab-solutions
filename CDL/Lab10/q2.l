@@ -12,8 +12,8 @@
 "else" {return ELSE;}
 [(,)] {return PARENTHESIS;}
 [{,}] {return BRACE;}
-[>,<] {return INEQUALITY;}
-
+[>,<,"<="] {return INEQUALITY;}
+"<="|">="|"!="|"==" {return INEQUALITY;}
 
 %%
 
