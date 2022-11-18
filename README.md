@@ -3,7 +3,7 @@ This repository contains all my lab manuals, codes, documents and endsem questio
 
 ## _1st/2nd Semester :_
 
-### _PSUC - Problem solving using computers :_ 
+### _Problem solving using computers Lab (PSUC) :_ 
 Basics of computer programming.<br>
 Concepts : Keywords, Loops, Arrays, Strings, Pointers, and Functions.<br>
 Language : C<br>
