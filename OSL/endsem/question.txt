@@ -1,0 +1,7 @@
+1 question for execution + writeup; Total duration = 2hrs; Total marks = 40
+
+Efficient page replacement algortihm : There are 3 frames. 
+i)  Write a C program to implement LRU. Idendicate hit/fault after every page check.
+ii) Modify the above program such that if 4 page faults occur back to back, then switch the algorithm to Optimal page replacement. 
+    While operating with Optimal page replacement, if 3 page faults occur back to back, then switch back the page replacement algorithm to LRU.
+    If there occurs 4 page faults during LRU and it is not possible to implement Optimal page replacement algorithm then switch to FIFO page replacement algorithm.
