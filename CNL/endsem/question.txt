@@ -1,0 +1,16 @@
+CNL endsem exam:
+
+1 Question for write-up only + 1 Question for write-up and execution.
+Total duration: 120 minutes.
+
+1) Write-up only: It was a question on NS2. 
+   - There were 5 nodes(0-4) and we were asked to write the code to set up a little complex wired network topology for TCP_FTP traffic and UDP_CBR traffic 
+   between the specified nodes.
+   
+2) Write-up + Execution:
+   - We had to setup a GNS configuration(as shown in GNS.png file). 
+   - IPs of all PCs had to be assigned dynamically using the DHCP server. 
+   - Inter-group ping(within group1 only or within group2 only) and Intra-group ping(between group1 and group2) on the PCs should be able to capture packets 
+     successfully.
+   - Setup serial interface configuration between DNS router and the DHCP router.
+   - DNS server should resolve Lab1.com, Lab2.com, Lab3.com via routers R3,R4,R5 respectively.
