@@ -13,4 +13,4 @@ Total duration: 120 minutes.
    - Inter-group ping(within group1 only or within group2 only) and Intra-group ping(between group1 and group2) on the PCs should be able to capture packets 
      successfully.
    - Setup serial interface configuration between DNS router and the DHCP router.
-   - DNS server should resolve Lab1.com, Lab2.com, Lab3.com via routers R3,R4,R5 respectively.
+   - DNS server should resolve Lab1.com, Lab2.com, Lab3.com via routers R3, R4, R5 respectively.
