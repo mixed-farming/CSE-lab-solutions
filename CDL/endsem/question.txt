@@ -1,0 +1,16 @@
+CDL endsem exam:
+
+1st Question for write-up only
+2nd Question for write-up and execution 
+3rd Question for execution only
+
+Total duration: 120 minutes ( + 5 minutes buffer time if you are fortunate :) )
+
+We were a given a grammar with 7 productions (consisting of left recursion and left factoring).
+1) Write a flex program to generate the tokens.
+2) Write and implement a GetNextToken for the same grammar and show the output in the form:
+   static-keyword
+   manoj-id
+   10-number...
+3) Implement a recursive decent parser(RDP) for the same grammar and check for parsing actions 
+   showing errors with appropriate messages on incorrect inputs and 'Success' on correct input.
