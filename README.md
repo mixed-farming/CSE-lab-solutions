@@ -93,3 +93,12 @@ Credits : 2<br>
 This lab consists of basic File handling operations, preliminary scanning applications, construction of token generator and symbol table, introduction to Flex and Bison, and Recursive decent parser for the C programming language.<br>
 Language : C<br>
 Credits : 2<br>
+
+## _6th Semester :_
+
+### _Distributed Systems Lab (DSL) :_
+
+### _Internet Technologies Lab (ITL) :_
+
+### _Parallel Computer Architecture and Programming Lab (PCAPL) :_
+
