@@ -1,0 +1,11 @@
+# New user on linux:
+ 
+$ sudo useradd -m `name`
+`root password`
+$ sudo passwd `name`
+`new password`
+`password confirmation`
+$ sudo usermod -aG sudo `name`
+ 
+log out and log in to new user
+# Backquotes needn't be used. It's just used here to show real value.
