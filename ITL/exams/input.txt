@@ -1,0 +1,8 @@
+Ram
+Maths 97
+Science 45
+CGPA 9.5
+Manoj
+Maths 100
+Science 100
+CGPA 10
