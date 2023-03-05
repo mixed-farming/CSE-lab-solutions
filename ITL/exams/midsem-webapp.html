@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>Exams always go bad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: rgb(71, 143, 61);
+        }
+
+        #box {
+            background-color:sienna;
+            border-radius: 5px;
+            width: 80%;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+    <script src="jquery-3.6.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("button").click(function () {
+                var place=$("#place").children("option:selected").val()
+                var remarks=$("#remarks").val()
+                result = place + ":\n" + remarks + "\n\n";
+                $("#reader").attr("readonly", false);
+                $("#reader").val($("#reader").val() + result);
+                $("#reader").attr("readonly", true);//However, it is recommended to use the prop() method when working with boolean attributes like readonly, disabled, checked, etc. This is because the prop() method is specifically designed to handle boolean attributes, whereas the attr() method may not always behave as expected. But it works here.
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <h1 class="text-center"><b>Park Play</b></h1>
+    <div class="container-fluid" id="box">
+        <div class="form-group">
+            <label for="reader" class="font-weight-bold">Reviews</label><br>
+            <textarea id="reader" class="form-control" rows="10" readonly></textarea>
+        </div>
+        <div class="form-group">
+            <label for="place" class="font-weight-bold">Select the area of park :</label>
+            <select class="form-control" id="place">
+                <option value="chestnut hall">chestnut hall</option>
+                <option value="pool cafe">pool cafe</option>
+                <option value="green world">green world</option>
+                <option value="cold benches">cold benches</option>
+            </select><br>
+        </div>
+        <div class="form-group">
+            <label for="remarks" class="font-weight-bold">Remarks about the area</label><br>
+            <input type="text" class="form-control" id="remarks">
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-success btn-lg text-dark">Add</button>
+        </div>
+    </div>
+</body>
+
+</html>
