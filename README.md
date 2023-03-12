@@ -98,7 +98,15 @@ Credits : 2<br>
 
 ### _Distributed Systems Lab (DSL) :_
 
+Language : Python<br>
+Credits : 1<br>
+
 ### _Internet Technologies Lab (ITL) :_
+
+Language : Python<br>
+Credits : 2<br>
 
 ### _Parallel Computer Architecture and Programming Lab (PCAPL) :_
 
+Language : C<br>
+Credits : 1<br>
