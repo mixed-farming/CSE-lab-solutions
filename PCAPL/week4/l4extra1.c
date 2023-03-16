@@ -24,7 +24,7 @@ int main(int argc,char** argv)
         if(i<=rank)
         store[k++]=recv[j];
         else
-        store[k++]='#';//while doing Gather, the 'store' from every process should be of same length
+        store[k++]='\t';//while doing Gather, the 'store' from every process should be of same length
         i++;
     }
     
@@ -35,7 +35,7 @@ int main(int argc,char** argv)
         printf("Resultant string: ");
         for(int i=0;i<size*size;i++)
         {
-            if(result[i]!='#')
+            if(result[i]!='\t')
             printf("%c",result[i]);
         }
         printf("\n");
