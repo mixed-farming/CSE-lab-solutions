@@ -24,8 +24,8 @@ int main(int argc, char *argv[])
         MPI_Reduce(&b[i], &max[i], 1, MPI_INT, MPI_MAX, 0, MPI_COMM_WORLD);
     }
 
-    MPI_Bcast(&max, size, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Bcast(&min, size, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(max, size, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(min, size, MPI_INT, 0, MPI_COMM_WORLD);
 
     for (i = 0; i < size; i++)
     {
