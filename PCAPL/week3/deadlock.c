@@ -27,3 +27,6 @@ int main(int argv, char *argc[]){
         printf("%d received by rank %d in else block\n",new,rank);
     }
 }
+
+//older mpi versions(3.0.0 and below) cause deadlocks for this program. 
+//Latest versions(4.0.0 and above) do not cause deadlock and are able to send the data in the above case.
