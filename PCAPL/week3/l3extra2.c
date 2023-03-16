@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv)
 {
-    int rank, size,a[10], b[10],even,odd,m,e[10],o[10];
+    int rank, size,a[10], b[10],even,odd,m,e[10],o[10],total_odd=0,total_even=0;
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
@@ -36,23 +36,16 @@ int main(int argc, char **argv)
     }
 
     MPI_Gather(b, m, MPI_INT, a, m, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Gather(&even, 1, MPI_INT, e, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Gather(&odd, 1, MPI_INT, o, 1, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Reduce(&odd,&total_odd,1,MPI_INT,MPI_SUM,0,MPI_COMM_WORLD);
+    MPI_Reduce(&even,&total_even,1,MPI_INT,MPI_SUM,0,MPI_COMM_WORLD);
     if (rank == 0)
     {
-        even=0;
-        odd=0;
         for (int i = 0; i < size*m; i++)
         {   
-            if(i<size)
-            {
-                even+=e[i];
-                odd+=o[i];
-            }
             printf("%d ",a[i]);
         }
-        printf("\nEven count : %d",even);
-        printf("\nOdd count : %d\n",odd);
+        printf("\nEven count : %d",total_even);
+        printf("\nOdd count : %d\n",total_odd);
     }
     MPI_Finalize();
     return 0;
