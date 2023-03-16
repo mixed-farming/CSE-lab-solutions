@@ -8,32 +8,39 @@ int main(int argc,char** argv)
 	MPI_Init(&argc,&argv);
 	MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 	MPI_Comm_size(MPI_COMM_WORLD,&size);
-    char s[1000],recv[1],store[2000],result[2000]="";
+    char s[100],recv[100],store[200],result[200];
 
 	if (rank==0)
 	{
-		printf("Enter first string of length %d : ",size); 
+		printf("Enter the string : "); 
         scanf("%s",s);
-        s[size]='\0';
 	}
 
     MPI_Scatter(s,1,MPI_CHAR,recv,1,MPI_CHAR,0,MPI_COMM_WORLD);
-
-    int i=0,k=0;
-    while(i<=rank)
+    
+    int i=0,j=0,k=0;
+    while(i<=size)
     {
-        store[k++]=recv[0];
+        if(i<=rank)
+        store[k++]=recv[j];
+        else
+        store[k++]='#';//while doing Gather, the 'store' from every process should be of same length
         i++;
     }
-
-	if (rank==0) 
-        printf("Resultant string: %s",store);
-    else
-        printf("%s",store);
-
-    if(rank==size-1)
-    printf("\n");
     
+	MPI_Gather(store,size,MPI_CHAR,result,size,MPI_CHAR,0,MPI_COMM_WORLD);
+    result[size*size]='\0';
+	if (rank==0)
+    {
+        printf("Resultant string: ");
+        for(int i=0;i<size*size;i++)
+        {
+            if(result[i]!='#')
+            printf("%c",result[i]);
+        }
+        printf("\n");
+    } 
+        
 	MPI_Finalize();
 
     return 0;
