@@ -35,12 +35,10 @@ int main(int argc, char *argv[])
         }
         else if (i > rank)
         {
-
             b[i] = min[rank];
         }
         else
         {
-
             b[i] = max[rank];
         }
     }
