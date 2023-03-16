@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     MPI_Init(&argc,&argv);
     MPI_Comm_rank(MPI_COMM_WORLD,&rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
-    // set number of process to 9 during mpi run-time
+    // set number of process to 2 during mpi run-time
     if (size != 2) {
     printf("This program must be run with exactly 2 processes.\n");
     MPI_Finalize();
