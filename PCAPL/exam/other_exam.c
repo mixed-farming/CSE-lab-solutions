@@ -67,8 +67,8 @@ int main(int argc,char** argv)
         MPI_Reduce(&row[i],&min[i],1,MPI_INT,MPI_MIN,0,MPI_COMM_WORLD);
     }
 
-    MPI_Bcast(&max, 4, MPI_INT, 0, MPI_COMM_WORLD);
-    MPI_Bcast(&min, 4, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(max, 4, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(min, 4, MPI_INT, 0, MPI_COMM_WORLD);
 
     for(int i=0;i<4;i++)
     {
