@@ -35,6 +35,7 @@ int main(int argc,char** argv)
     MPI_Comm_size(MPI_COMM_WORLD,&size);
     MPI_Comm_rank(MPI_COMM_WORLD,&rank);
     int a[4][4],b[4][4],row[4],col[4],min[4],max[4],temp[4],c[4][4],flag;
+    
     if(rank==0)
     {
         printf("Populate the elements of 1st matrix : \n");
@@ -61,11 +62,8 @@ int main(int argc,char** argv)
     MPI_Scatter(a,4,MPI_INT,col,4,MPI_INT,0,MPI_COMM_WORLD);//A scattered row-wise to find column maximum using Reduce
     MPI_Scatter(b,4,MPI_INT,temp,4,MPI_INT,0,MPI_COMM_WORLD);//B scattered row-wise to get modified
 
-    for(int i=0;i<4;i++)
-    {
-        MPI_Reduce(&col[i],&max[i],1,MPI_INT,MPI_MAX,0,MPI_COMM_WORLD);
-        MPI_Reduce(&row[i],&min[i],1,MPI_INT,MPI_MIN,0,MPI_COMM_WORLD);
-    }
+    MPI_Reduce(col,max,4,MPI_INT,MPI_MAX,0,MPI_COMM_WORLD);
+    MPI_Reduce(row,min,4,MPI_INT,MPI_MIN,0,MPI_COMM_WORLD);
 
     MPI_Bcast(max, 4, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Bcast(min, 4, MPI_INT, 0, MPI_COMM_WORLD);
@@ -79,10 +77,12 @@ int main(int argc,char** argv)
             break;
         }
     }
+    
     if(temp[rank]!=min[rank] && flag!=rank)
     temp[rank]=0;
 
     MPI_Gather(temp,4,MPI_INT,c,4,MPI_INT,0,MPI_COMM_WORLD);
+    
     if(rank==0)
     {
         printf("\nModified matrix : \n");
