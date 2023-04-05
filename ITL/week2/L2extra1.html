@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Train Ticket Booking Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-center">Train Ticket Booking Form</h2>
+        <form>
+            <div class="form-group">
+                <label for="from">From:</label>
+                <input type="text" class="form-control" id="from" name="from">
+            </div>
+            <div class="form-group">
+                <label for="to">To:</label>
+                <input type="text" class="form-control" id="to" name="to">
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" class="form-control" id="date" name="date">
+            </div>
+            <div class="form-group">
+                <label for="class">Class:</label>
+                <select class="form-control" id="class" name="class">
+                    <option>Economy</option>
+                    <option>Business</option>
+                    <option>First Class</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="passengers">Passengers:</label>
+                <input type="number" class="form-control" id="passengers" name="passengers"
+                    placeholder="Enter no.of passengers">
+            </div>
+            <br>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="newsletter" name="newsletter">
+                <label class="form-check-label" for="newsletter">Subscribe to our newsletter</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </form>
+    </div>
+</body>
+
+</html>

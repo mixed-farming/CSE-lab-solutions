@@ -1,0 +1,141 @@
+    <html>
+
+<head>
+    <title>Question 2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="D:\manoj MIT\6th sem\ITL\practice\bootstrap.min.css">
+    <style>
+        body {
+            background-color: rgb(255, 195, 146);
+        }
+
+        #box {
+            background-color: rgb(255, 255, 255);
+            border-radius: 5px;
+            width: 90%;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="text-center" class="font-weight-bold">Employee Database 2019</h1>
+    <div class="container" id="box">
+        <legend class="font-weight-bold">Employee Data</legend>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <th>
+                    Employee ID
+                </th>
+                <th>
+                    Employee name
+                </th>
+                <th>
+                    Employee gender
+                </th>
+                <th>
+                    Employee email
+                </th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>20191024</td>
+                    <td>Rajesh Kuthrapalli</td>
+                    <td>Male</td>
+                    <td>rkuth@yahoo.com</td>
+                </tr>
+                <tr>
+                    <td>20198192</td>
+                    <td>Kaley Cuoco</td>
+                    <td>Female</td>
+                    <td>kaleycuoco@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>20192048</td>
+                    <td>Sheldon Lee Cooper</td>
+                    <td>Male</td>
+                    <td>shelly@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>20194096</td>
+                    <td>Bernadette rostenkowski</td>
+                    <td>Female</td>
+                    <td>broski@yahoo.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <form>
+            <legend class="font-weight-bold">Create new employee</legend>
+            <div class="form-group">
+                <label for="id">Employee ID: </label>
+                <input type="number" id="id" class="form-control" placeholder="Enter your employee id">
+            </div>
+            <div class="form-group">
+                <label for="name_id">Employee name: </label>
+                <input type="name" id="name_id" class="form-control" placeholder="Enter your employee name">
+            </div>
+            <div class="form-group">
+                <label for="gender">Employee gender: </label> <br>
+                <input type="radio" id="male" name="gender"> Male <br>
+                <input type="radio" id="female" name="gender"> Female
+            </div>
+            <div class="form-group">
+                <label for="mail">Employee email: </label>
+                <input type="email" id="mail" class="form-control" placeholder="Enter your employee email id">
+            </div>
+            <button type="submit" class="btn btn-success">CREATE</button>
+        </form>
+        <br>
+        <form>
+            <legend class="font-weight-bold">Update Employee</legend>
+            <div class="form-group">
+                <label for="updation">Select the employee to be updated</label>
+                <select class="form-control" id="updation" multiple>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <br>
+                <div class="form-group">
+                    <label for="id">New employee ID: </label>
+                    <input type="number" id="id" class="form-control" placeholder="Enter your employee id">
+                </div>
+                <div class="form-group">
+                    <label for="name_id">New employee name: </label>
+                    <input type="name" id="name_id" class="form-control" placeholder="Enter your employee name">
+                </div>
+                <div class="form-group">
+                    <label for="gender">New employee gender: </label> <br>
+                    <input type="radio" id="male" name="gender"> Male <br>
+                    <input type="radio" id="female" name="gender"> Female
+                </div>
+                <div class="form-group">
+                    <label for="mail">New employee email: </label>
+                    <input type="email" id="mail" class="form-control" placeholder="Enter your employee email id">
+                </div>
+                <button type="submit" class="btn btn-info">UPDATE</button>
+            </div>
+        </form>
+        <br>
+        <form>
+            <legend class="font-weight-bold">Delete Employee</legend>
+            <div class="form-group">
+                <label for="deletion">Select the employee to be deleted</label>
+                <select class="form-control" id="deletion" multiple>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                <br>
+                <button type="submit" class="btn btn-outline-danger">DELETE</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

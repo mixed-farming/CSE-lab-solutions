@@ -1,0 +1,152 @@
+<html>
+
+<head>
+    <title>Question 1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: darkkhaki;
+        }
+
+        #box {
+            background-color: rgb(255, 249, 198);
+            /* margin: 0 auto   ; */
+            border-radius: 5px;
+            width: 90%;
+            padding: 10px;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="text-center"><b>Student Bio-data</b></h1>
+    <div class="container" id="box">
+        <form>
+            <fieldset>
+                <legend class="font-weight-bold">Personal details</legend>
+                <div class="form-group">
+                    <label for="name_id">Name: </label>
+                    <input type="name" id="name_id" class="form-control" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="dad_name">Father's name:</label>
+                    <input type="name" id="dad_name" class="form-control" placeholder="Enter your father's name">
+                </div>
+                <div class="form-group">
+                    <label for="mail">Email:</label>
+                    <input type="email" id="mail" class="form-control" placeholder="Enter your email-id">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" class="form-control" placeholder="Enter your age">
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of birth:</label>
+                    <input type="date" id="dob" class="form-control">
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend class="font-weight-bold">Academic preferences</legend>
+                <table class="table table-striped">
+                    <thead>
+                        <th>BRANCH</th>
+                        <th>MINOR SPECIALIZATION</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="radio" id="course" name="branch">
+                                <label for="course">Aerospace Engineering</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="minor_yes" name="minor">
+                                <label for="minor">Yes</label>
+                                <input type="radio" id="minor_no" name="minor">
+                                <label for="minor">No</label>
+                                <input type="radio" id="minor_idk" name="minor">
+                                <label for="minor">Not decided</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" id="course" name="branch">
+                                <label for="course">Biomedical Engineering</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="minor_yes" name="minor">
+                                <label for="minor">Yes</label>
+                                <input type="radio" id="minor_no" name="minor">
+                                <label for="minor">No</label>
+                                <input type="radio" id="minor_idk" name="minor">
+                                <label for="minor">Not decided</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" id="course" name="branch">
+                                <label for="course">Computer Science and Engineering</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="minor_yes" name="minor">
+                                <label for="minor">Yes</label>
+                                <input type="radio" id="minor_no" name="minor">
+                                <label for="minor">No</label>
+                                <input type="radio" id="minor_idk" name="minor">
+                                <label for="minor">Not decided</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" id="course" name="branch">
+                                <label for="course">Electrical Engineering</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="minor_yes" name="minor">
+                                <label for="minor">Yes</label>
+                                <input type="radio" id="minor_no" name="minor">
+                                <label for="minor">No</label>
+                                <input type="radio" id="minor_idk" name="minor">
+                                <label for="minor">Not decided</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="radio" id="course" name="branch">
+                                <label for="course">Mechanical Engineering</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="minor_yes" name="minor">
+                                <label for="minor">Yes</label>
+                                <input type="radio" id="minor_no" name="minor">
+                                <label for="minor">No</label>
+                                <input type="radio" id="minor_idk" name="minor">
+                                <label for="minor">Not decided</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend class="font-weight-bold">Confirmation</legend>
+                <div class="form-check">
+                    <input type="checkbox" id="confirm" class="form-check-input">
+                    <label for="confirm" class="form-check-label">I hereby confirm that all the details provided above
+                        are true to the best of my knowledge</label>
+                </div>
+                <br><br>
+                <button type="reset" class="btn btn-primary" style="float:left">Reset</button>
+                <button type="submit" class="btn btn-primary" style="float:right">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>
