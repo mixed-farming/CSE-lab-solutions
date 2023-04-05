@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <title>
+        Question 3
+    </title>
+    <style>
+        #box{
+            display: flex;
+        }
+        #left,#right{
+            border: 3px solid black;
+            margin: 1px;
+            padding: 2rem;
+            width: 50%;
+            height: 75vh;
+        }
+        #left{
+            background-color: burlywood;
+        }
+        #right{
+            text-align: center;
+        }
+        #greetcard{
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+        img{
+            display: none;
+        }
+        button{
+            font-size: 20;
+        }
+
+    </style>
+    <script src="jquery-3.6.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("button").click(function () {
+                var bgc=$("#bgc").val();
+                var font=$("#font").children("option:selected").val();
+                var fsize=$("#fsize").val();
+                var greet=$("#greet").val();
+                var borders=$('input[type="radio"]:checked');
+                if(borders.length>0)
+                {
+                    var [b] = borders;//destructuring assignment
+                    var actual_border = b.value;
+                }
+                else
+                {
+                    var actual_border = "none";
+                }
+
+                var image=$('input[type="checkbox"]:checked');
+                if(image.length==0)
+                {
+                    $("img").css("display","none");
+                }
+                else
+                {
+                    $("img").css("display","inline-block");
+                }
+
+                $("#right").css("background-color",bgc);
+                $("#right").css("font-family",font);
+                $("#right").css("font-size",fsize);
+                $("#right").css("border","3px " + actual_border + " black");
+                $("#greetcard").text(greet);
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <h1 style="text-align: center;">DESIGN YOUR GREETING CARD</h1>
+    <div id="box">
+        <div id="left">
+            <label for="bgc">Choose a background color : </label>
+            <input type="color" id="bgc" name="background colour">
+            <br><br>
+            <label for="font">Choose a font : </label>
+            <br><br>
+            <select id="font" name="font style">
+                <option value='Arial'>Arial</option>
+                <option value='Tahoma'>Tahoma</option>
+                <option value='Times New Roman'>Times New Roman</option>
+                <option value='Brush Script MT'>Brush Script MT</option>
+                <option value='Garamond'>Garamond</option>
+            </select>
+            <br><br>
+            <label for="fsize">Specify the font size : </label>
+            <br><br>
+            <input type="number" id="fsize" name="fontsize">
+            <br><br>
+            <label>Choose the type of border : </label>
+            <br><br>
+            <input type="radio" id="none" name="border style" value="none">
+            <label for="none">None</label>
+            <br>
+            <input type="radio" id="double" name="border style" value="double">
+            <label for="double">Double</label>
+            <br>
+            <input type="radio" id="solid" name="border style" value="solid">
+            <label for="solid">Solid</label>
+            <br><br>
+            <input type="checkbox" id="image" name="greet image" value="image">
+            <label for="image">Add the default image</label>
+            <br><br>
+            <label for="greet">Enter the greeting text below : </label><br><br>
+            <textarea row="10" cols="10" id="greet" name="greeting"></textarea>
+            <br><br>
+            <p style="text-align:center">
+                <button type="button">Update</button>
+            </p>
+        </div>
+        <div id="right">
+            <div id="greetcard">Customize me...</div>
+            <img src="inspire.jpeg" alt="inspirational quote" height="300" width="300">
+        </div>
+    </div>
+</body>
+</html>

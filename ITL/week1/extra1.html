@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <style>
+    #ball {
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      background-color: red;
+      position: absolute;
+    }
+    body{
+      background-color: black;
+    }
+  </style>
+  <script src="jquery-3.6.3.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var xPos = 0;
+      var yPos = 0;
+      var xDirection = 1;
+      var yDirection = 1;
+
+      setInterval(function () {
+        xPos += xDirection;
+        yPos += yDirection;
+        if (xPos > $(window).width() - 100 || xPos < 0) {
+          xDirection *= -1;
+        }
+        if (yPos > $(window).height() - 100 || yPos < 0) {
+          yDirection *= -1;
+        }
+        $("#ball").animate({ right: xPos, top: yPos }, 0);
+      }, 0);
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="ball"></div>
+</body>
+
+</html>

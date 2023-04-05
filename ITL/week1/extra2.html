@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>2nd extra Question</title>
+    <script src="jquery-3.6.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var xPos = 0;
+            var xDirection = 1;
+
+            setInterval(function () {
+                xPos += xDirection;
+                if (xPos > 620 || xPos<1) {
+                    xDirection *= -1;
+                }
+                if(xDirection==1)
+                {
+                    $("#slider").animate({left: xPos}, 0);
+                }
+                else
+                {
+                    $("#slider").animate({left: xPos}, 0);
+                }
+            }, 10);
+        });
+    </script>
+    <style>
+        #slider {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slider">
+        <p><b>~INSPIRE~</b></p>
+    </div>
+    <img src="inspire.jpeg" alt="image" height="500" width="700">
+</body>
+
+</html>

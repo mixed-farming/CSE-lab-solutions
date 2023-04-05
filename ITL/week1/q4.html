@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>Question 4</title>
+            <style>
+                body{
+                    background-color: rgb(0, 0, 63);
+                    font-family:cursive;
+                }
+                #box{
+                    background-color:cadetblue;
+                    margin: 0 auto;
+                    margin-top: 7.5rem;
+                    height: 55vh;
+                    width: 55vh;
+                    border: 5px double black;
+                    padding: 2rem;
+                }
+                button{
+                    font-size: 20;
+                }
+            </style>
+            <script src="jquery-3.6.3.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $("button").click(function(){
+                        const laptopPrice = {hp: 60000,nokia: 20000,samsung: 50000,motorola: 35000,apple: 120000} //javascript object literal
+                        const mobilePrice = {hp: 30000,nokia: 5000,samsung: 15000,motorola: 9000,apple: 60000}
+
+                        let brand=$("#brand").children("option:selected").val();
+                        let [laptop]=$("#laptop:checked");//destructuring assignment
+                        let [mobile]=$("#mobile:checked");
+                        let q=parseInt($("#q").val());
+                        let bill=0;
+                        if(laptop)
+                        {
+                            bill += q*laptopPrice[brand];
+                        }
+                        if(mobile)
+                        {
+                            bill += q*mobilePrice[brand];
+                        }
+
+                        alert(`\nTotal quantity: ${q}\n\nTotal amount = ${bill}`);
+                    })
+                })
+            </script>
+    </head>
+    <body>
+        <div id="box">
+            <label for="items">Choose the brand you wanna purchase from us : </label>
+            <select id="brand">
+                <option value="hp">HP</option>
+                <option value="nokia">Nokia</option>
+                <option value="samsung">Samsung</option>
+                <option value="motorola">Motorola</option>
+                <option value="apple">Apple</option>
+            </select>
+            <br><br><br><br><br>
+            <label>Add your choices : </label>
+            <input type="checkbox" id="mobile" name="mobile-phone" value="mobile">
+            <label for="mobile">Mobile</label>
+            <input type="checkbox" id="laptop" name="pc" value="laptop">
+            <label for="laptop">Laptop</label>
+            <br><br>
+            <label>Specify quantity : </label><br><br>
+            <textarea id="q" name="quantity"></textarea>
+            <br><br>
+            <p style="text-align:center;">
+                <button type="button">Produce bill</button>
+            </p>
+        </div>
+    </body>
+</html>

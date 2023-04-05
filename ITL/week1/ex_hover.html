@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>The jQuery Example 6</title>
+
+    <script type="text/javascript" src="jquery-3.6.3.js">
+    </script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("div").hover(
+                function () {
+                    $(this).css({ "background-color": "red" });
+                },
+                function () {
+                    $(this).css({ "background-color": "blue" });
+                }
+            );
+        }); 
+    </script>
+</head>
+
+<body>
+    <div>
+        <p class="myclass">This is a paragraph.</p>
+        <p id="myid">This is second paragraph.</p>
+        <p>This is third paragraph.</p>
+    </div>
+</body>
+
+</html>

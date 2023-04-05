@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      #table-container {
+        display: flex;
+        justify-content: flex-end;
+      }
+      #table-container.move-left {
+        justify-content: flex-start;
+      }
+      img {
+        height: 100px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="table-container">
+      <table>
+        <tr>
+          <th>Header 1</th>
+          <th>Header 2</th>
+          <th>Header 3</th>
+        </tr>
+        <tr>
+          <td>Row 1, Column 1</td>
+          <td>Row 1, Column 2</td>
+          <td>Row 1, Column 3</td>
+        </tr>
+        <tr>
+          <td>Row 2, Column 1</td>
+          <td>Row 2, Column 2</td>
+          <td>Row 2, Column 3</td>
+        </tr>
+        <tr>
+          <td>Row 3, Column 1</td>
+          <td>Row 3, Column 2</td>
+          <td>Row 3, Column 3</td>
+        </tr>
+      </table>
+      <img src="https://via.placeholder.com/100x100" alt="Placeholder Image">
+    </div>
+    <button id="move-button">Move Table and Image</button>
+    <script>
+      const button = document.querySelector("#move-button");
+      button.addEventListener("click", function() {
+        const container = document.querySelector("#table-container");
+        container.classList.toggle("move-left");
+      });
+    </script>
+  </body>
+</html>

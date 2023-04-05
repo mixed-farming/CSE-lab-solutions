@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>The jQuery Example 2</title>
+
+    <script type="text/javascript" src="jquery-3.6.3.js">
+    </script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("p").css("background-color", "yellow");
+            $("#myid").css("background-color", "red");// overwrites the color of the middle paragraph
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <p class="myclass">This is a paragraph.</p>
+        <p id="myid">This is second paragraph.</p>
+        <p>This is third paragraph.</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title>
+        The jQuery Example 10
+    </title>
+    <style>
+        body{
+            background-color: dodgerblue;
+        }
+        table,
+        td {
+            border: 2px solid black;
+            text-align: center;
+        }
+
+        td {
+            padding: 1rem;
+        }
+
+        #component {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            font-size: 25;
+        }
+    </style>
+    <script src="jquery-3.6.3.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("button").click(function () {
+                    $("#component").animate({width: "430px"}, 1000);//"slow" ~ 500
+                })
+            })
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <div id="component">
+            <table>
+                <tr>
+                    <td bgcolor="orange">Row</td>
+                    <td bgcolor="orange">rOw</td>
+                    <td bgcolor="orange">roW</td>
+                </tr>
+                <tr>
+                    <td bgcolor="violet">your</td>
+                    <td bgcolor="violet">boat</td>
+                    <td bgcolor="violet">gently</td>
+                </tr>
+                <tr>
+                    <td bgcolor="orange">down</td>
+                    <td bgcolor="orange">the</td>
+                    <td bgcolor="orange">stream</td>
+                </tr>
+            </table>
+            <img src="boat.jpeg" alt="boat image" width="200" height="200">
+        </div>
+        <br><br><br>
+        <button type="button">Move to left side</button>
+    </div>
+</body>
+</html>

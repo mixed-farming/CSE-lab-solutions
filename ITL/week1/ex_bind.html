@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title>The jQuery Example 7</title>
+
+    <script type="text/javascript" src="jquery-3.6.3.js">
+    </script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("div").bind('click',function(){
+                    $(this).css({ "background-color": "red" });
+            });
+        }); 
+    </script>
+</head>
+
+<body>
+    <div>
+        <p class="myclass">This is a paragraph.</p>
+        <p id="myid">This is second paragraph.</p>
+        <p>This is third paragraph.</p>
+    </div>
+</body>
+
+</html>

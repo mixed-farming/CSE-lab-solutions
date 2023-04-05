@@ -1,0 +1,89 @@
+<html>
+
+<head>
+	<title>
+		Question 2
+	</title>
+	<style>
+		body {
+			background-color:black;
+		}
+
+		#box {
+			border: ridge;
+			border-width: 10px;
+			width: 500px;
+			height: 430px;
+			padding: 2rem;
+			margin: 0 auto;
+			background-color: c28d02;
+		}
+
+		button {
+			font-size: 20;
+		}
+	</style>
+
+	<script src="jquery-3.6.3.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("button").click(function () {
+				var x = $("#x").val();
+				var y = $("#y").val();
+				var ans;
+				var selected = $("#operation").children("option:selected").val();
+				switch (selected) {
+					case "add":
+						ans = parseInt(x) + parseInt(y);
+						break;
+					case "subtract":
+						ans = parseInt(x) - parseInt(y);
+						break;
+					case "multiply":
+						ans = parseInt(x) * parseInt(y);
+						break;
+					case "divide":
+						ans = parseInt(x) / parseInt(y);
+						break;
+					default:
+						ans = "Error";
+				}
+
+				$("#answer").text(ans);
+			})
+		})
+	</script>
+</head>
+
+<body>
+	<div id="box">
+		<label for="x">First number:</label>
+		<br><br>
+		<textarea row="10" cols="10" id="x" name="first-number"></textarea>
+		<br><br>
+		<label for="y">Second number:</label>
+		<br><br>
+		<textarea row="10" cols="10" id="y" name="second-number"></textarea>
+		<br><br>
+		<label for="operation">Select the operand:</label>
+		<br><br>
+		<select id="operation">
+			<option value='add'>+</option>
+			<option value='subtract'>-</option>
+			<option value='multiply'>*</option>
+			<option value='divide'>/</option>
+		</select>
+		<br><br><br><br><br>
+		<p style="text-align:center;">
+			<button type="button">Calculate</button>
+		</p>
+		<br><br>
+		<p>
+			<b>
+				ANSWER = <span id="answer"></span>
+			</b>
+		</p>
+	</div>
+</body>
+
+</html>

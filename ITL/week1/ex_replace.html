@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title>The jQuery Example 4</title>
+
+    <script type="text/javascript" src="jquery-3.6.3.js">
+    </script>
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("div").click(function () {
+                $(this).replaceWith("<h1>JQuery is Great</h1><img src=\"boat.jpeg\" alt=\"Sample image\" />"); //" " need escape sequence as backslash \
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <p class="myclass">This is a paragraph.</p>
+        <p id="myid">This is second paragraph.</p>
+        <p>This is third paragraph.</p>
+    </div>
+</body>
+
+</html>
