@@ -1,0 +1,33 @@
+#box {
+    display: flex;
+}
+
+#left,
+#right {
+    border: 3px solid black;
+    margin: 1px;
+    padding: 2rem;
+    width: 50%;
+    height: 80vh;
+}
+
+#left {
+    background-color: burlywood;
+}
+
+#right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    display: none;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+button {
+    font-size: 20;
+}

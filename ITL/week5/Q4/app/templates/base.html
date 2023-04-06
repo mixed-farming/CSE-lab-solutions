@@ -1,0 +1,78 @@
+{%load static%}
+<html>
+
+<head>
+    <title>
+        Magazine cover
+    </title>
+    <link rel="stylesheet" href="{% static 'q4.css' %}">
+</head>
+
+<body>
+    <h1 style="text-align: center;">Design your Magazine Cover</h1>
+    <div id="box">
+        <div id="left">
+            <label for="bgc">Choose a background color : </label>
+            <input type="color" id="bgc" name="background colour">
+            <br><br>
+            <label for="font">Choose a font : </label>
+            <br><br>
+            <select id="font" name="font style">
+                <option value='Arial'>Arial</option>
+                <option value='Tahoma'>Tahoma</option>
+                <option value='Times New Roman'>Times New Roman</option>
+                <option value='Brush Script MT'>Brush Script MT</option>
+                <option value='Garamond'>Garamond</option>
+            </select>
+            <br><br>
+            <label for="fsize">Specify the font size : </label>
+            <br><br>
+            <input type="number" id="fsize" name="fontsize">
+            <br><br>
+            <label>Choose the type of border : </label>
+            <br><br>
+            <input type="radio" id="solid" name="border" value="solid">
+            <label for="solid">Solid</label><br>
+            <input type="radio" id="dotted" name="border" value="dotted">
+            <label for="dotted">Dotted</label><br>
+            <input type="radio" id="dashed" name="border" value="dashed">
+            <label for="dashed">Dashed</label><br>
+            <input type="radio" id="none" name="border" value="none">
+            <label for="none">None</label><br>
+            <br><br>
+            <input type="checkbox" id="showImage" name="greet image" value="image">
+            <label for="showImage">Add the default image</label>
+            <br><br>
+            <label for="msg">Enter your message : </label>
+            <br><br>
+            <textarea id="msg" name="message" rows="4" cols="50"></textarea>
+            <br><br><br>
+            <button onclick="generate()">Generate</button>
+        </div>
+        <div id="right">
+            <h2 id="msg1"></h2>
+            <img id="img" src="static/sonam_sexy.jpg" alt="inspirational quote" height="250" width="300">
+        </div>
+        <script>
+            function generate() {
+                var bgc = document.getElementById("bgc").value;
+                var font = document.getElementById("font").value;
+                var fsize = document.getElementById("fsize").value;
+                var border = document.querySelector('input[name="border"]:checked').value;
+                var msg = document.getElementById("msg").value;
+                var img = document.getElementById('img');
+                document.getElementById("right").style.backgroundColor = bgc;
+                document.getElementById("right").style.border = border;
+                document.getElementById("msg1").innerHTML = msg;
+                document.getElementById("msg1").style.fontFamily = font;
+                document.getElementById("msg1").style.fontSize = fsize + "px";
+                if (document.getElementById('showImage').checked) {
+                    img.style.display = 'block';
+                } else {
+                    img.style.display = 'none';
+                }
+            }
+        </script>
+</body>
+
+</html>
