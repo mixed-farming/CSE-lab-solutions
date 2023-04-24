@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>ShopHere</title>
+    </head>
+    <body>
+        <form name="form" action="{% url 'submit' %}" method="POST" target="_blank">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <input type="submit" value="Produce Bill">
+    </body>
+</html>
