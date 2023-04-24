@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <form method="POST" action="firstPage">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

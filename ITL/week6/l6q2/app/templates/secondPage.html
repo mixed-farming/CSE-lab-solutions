@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Result</title>
+    </head>
+    <body>
+        <p>Name: <strong>{{ Name }}</strong></p>
+        <p>Roll No: <strong>{{ RollNo }}</strong></p>
+        <p>Subject: <strong>{{ Subject }}</strong></p>
+        <form method="GET" action="{% url 'index' %}">
+            <button type="submit">Go back</button>
+        </form>
+    </body>
+</html>
