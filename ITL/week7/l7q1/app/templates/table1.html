@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>Category Table</title>
+</head>
+<body>
+    <form action="category" method="POST">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit" value="insert">
+    </form><br>
+    <a href="{% url 'home' %}">Go back to home</a>
+</body>
+</html>

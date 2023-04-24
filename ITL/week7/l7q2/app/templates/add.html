@@ -1,0 +1,15 @@
+<html lang="en">
+<head>
+    <title>Update Employee Portal</title>
+</head>
+<body>
+    <form action="portal" method="POST">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table><br>
+        <input type="submit" value="insert">
+    </form>
+    <a href="{% url 'home' %}">Go back to home</a>
+</body>
+</html>

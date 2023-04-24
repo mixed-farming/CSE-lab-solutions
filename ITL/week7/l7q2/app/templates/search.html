@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <title>Retrieve employee details</title>
+</head>
+<body>
+    <form action="search" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <br>
+        <input type="submit" value="search">
+    </form><br>
+    <table>
+        <thead>
+            <td>name</td>
+            <td>city</td>
+        </thead>
+        {% for employee in employees %}
+        <tr>
+            <td>{{employee.name}}</td>
+            <td>{{employee.city}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'home' %}">Go back to home</a>
+</body>
+</html>
