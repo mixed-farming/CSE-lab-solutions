@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Author Registration</title>
+</head>
+<body>
+    <h1>Author Registration:</h1>
+    <form action="authorEntry" method="POST">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit" value=register>
+    </form>
+    <button><a href="{% url 'index' %}">Back</a></button>
+</body>
+</html>

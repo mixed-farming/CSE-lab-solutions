@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Book Registration</title>
+</head>
+<body>
+    <h1>Search for book</h1>
+    <form action="searchBook" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <br><input type="submit" value = "Search">
+    </form>
+    <table>
+        <thead>
+            <td>Title</td>
+            <td>Published Date</td>
+            <td>Name of the Publisher</td>
+            <td>Name of the authors</td>
+        </thead>
+        <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.pdate}}</td>
+            <td>{{book.publisher.name}}</td>
+            <td>
+                {% for author in book.authors.all %}
+                {{author.fname}} {{author.lname}} <br>
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+    <button><a href="{% url 'index' %}">Back</a></button>
+</body>
+</html>

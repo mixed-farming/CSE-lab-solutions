@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Book Registration</title>
+</head>
+<body>
+    <h1>Book Registration:</h1>
+    <form action="bookEntry" method="POST">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit" value=register>
+    </form>
+    <button><a href="{% url 'index' %}">Back</a></button>
+</body>
+</html>

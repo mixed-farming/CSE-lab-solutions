@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Author Registration</title>
+</head>
+<body>
+    <h1>Search for Author</h1>
+    <form action="searchAuthor" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <br><input type="submit" value = "Search">
+    </form>
+    <table>
+        <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>email</th>
+        </thead>
+        <tr>
+            <td>{{author.fname}}</td>
+            <td>{{author.lname}}</td>
+            <td>{{author.em}}</td>
+        </tr>
+    </table>
+    <button><a href="{% url 'index' %}">Back</a></button>
+</body>
+</html>

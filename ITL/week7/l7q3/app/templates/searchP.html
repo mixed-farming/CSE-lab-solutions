@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Publisher Registration</title>
+</head>
+<body>
+    <h1>Search for Publisher</h1>
+    <form action="searchPublisher" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <br><input type="submit" value = "Search">
+    </form>
+    <table>
+        <thead>
+            <td>Name</td>
+            <td>Street</td>
+            <td>City</td>
+            <td>State</td>
+            <td>Country</td>
+            <td>Website</td>
+        </thead>
+        <tr>
+            <td>{{publisher.name}}</td>
+            <td>{{publisher.street}}</td>
+            <td>{{publisher.city}}</td>
+            <td>{{publisher.state}}</td>
+            <td>{{publisher.country}}</td>
+            <td>{{publisher.site}}</td>
+        </tr>
+    </table>
+    <button><a href="{% url 'index' %}">Back</a></button>
+</body>
+</html>

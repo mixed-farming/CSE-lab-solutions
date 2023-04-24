@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Publisher Registration</title>
+</head>
+<body>
+    <h1>Publisher Registration:</h1>
+    <form action="publisherEntry" method="POST">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit" value=register>
+    </form>
+    <button><a href="{% url 'index' %}">Back</a></button>
+</body>
+</html>

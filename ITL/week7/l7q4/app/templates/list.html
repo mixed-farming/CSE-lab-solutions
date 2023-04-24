@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Product List</title>
+</head>
+<body>
+    <h1>Products:</h1>
+    <ul>
+        {% for product in products %}
+        <li>{{product.title}} <br>₹{{product.price}} <br>{{product.desc}}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Go back to home</a>
+</body>
+</html>
