@@ -1,0 +1,18 @@
+1. write mapper.py and reducer.py
+
+chmod 777 mapper.py reducer.py
+
+2. Make input directories:
+
+hdfs dfs -mkdir /dir1
+hdfs dfs -mkdir /dir1/input
+
+3. hdfs put into input directory hadoop file system:
+
+hdfs dfs -put examples.txt /dir1/input/
+
+hadoop jar ../hadoop-3.3.4/share/hadoop/tools/lib/hadoop-streaming-3.3.4.jar -file mapper.py -mapper mapper.py -file rreducer.py -reducer rreducer.py -input /dir1/input/* -output /dir1/output
+
+4.Remove output directory to run again:
+
+hdfs dfs -rm -r /dir1/output
