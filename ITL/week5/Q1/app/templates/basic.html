@@ -1,68 +1,33 @@
 <html>
-  <head>
-    <title>Student Details Form</title>
-  </head>
-  <body>
-    <form id="details-form">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required><br><br>
+<head>
+    <title>Form Display</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function func() {
+            var n1 = document.getElementById("num1").value;
+            var n2 = document.getElementById("num2").value;
+            var n3 = document.getElementById("num3").value;
+            var n4 = document.getElementById("num4").value;
+            var n5 = document.getElementById("num5").value;
+            var english = document.getElementById("num6").value;
+            var physics = document.getElementById("num7").value;
+            var chemistry = document.getElementById("num8").value;
+            var total = parseInt(english) + parseInt(physics) + parseInt(chemistry);
+            var percentage = (total / 300) * 100;
+            document.getElementById('result').textContent = `Name: ${n1}\nDate of Birth: ${n2}\nAddress: ${n3}\nContact Number: ${n4}\nEmail id: ${n5}\nEnglish Marks: ${english}\nPhysics Marks: ${physics}\nChemistry Marks: ${chemistry}\nTotal Marks: ${total}\nPercentage: ${percentage.toFixed(2)}`;
 
-      <label for="dob">Date of Birth:</label>
-      <input type="date" id="dob" name="dob" required><br><br>
-
-      <label for="address">Address:</label>
-      <textarea id="address" name="address" rows="1" cols="50"required></textarea><br><br>
-
-      <label for="phone">Contact Number:</label>
-      <input type="tel" id="phone" name="phone" required><br><br>
-
-      <label for="email">Email ID:</label>
-      <input type="email" id="email" name="email" required><br><br>
-
-      <label for="english">English Marks:</label>
-      <input type="number" id="english" name="english" min="0" max="100" required><br><br>
-
-      <label for="physics">Physics Marks:</label>
-      <input type="number" id="physics" name="physics" min="0" max="100" required><br><br>
-
-      <label for="chemistry">Chemistry Marks:</label>
-      <input type="number" id="chemistry" name="chemistry" min="0" max="100" required><br><br>
-
-      <button type="submit">Submit</button><br>
-    </form>
-
-    <br>
-    <label for="results"></label>
-    <textarea id="results" rows="15" cols="50" readonly></textarea>
-
-    <script>
-      // Get references to the form and the textarea
-      const form = document.getElementById("details-form");
-      const resultsTextarea = document.getElementById("results");
-
-      // Add an event listener to the form submit button
-      form.addEventListener("submit", (event) => {
-        // Prevent the default form submission behavior
-        event.preventDefault();
-
-        // Get the values of the form fields
-        const name = document.getElementById("name").value;
-        const dob = document.getElementById("dob").value;
-        const address = document.getElementById("address").value;
-        const phone = document.getElementById("phone").value;
-        const email = document.getElementById("email").value;
-        const englishMarks = Number(document.getElementById("english").value);
-        const physicsMarks = Number(document.getElementById("physics").value);
-        const chemistryMarks = Number(document.getElementById("chemistry").value);
-
-        // Calculate the total marks and percentage
-        const totalMarks = englishMarks + physicsMarks + chemistryMarks;
-        const percentage = (totalMarks / 300) * 100;
-
-        // Format the results as a string and add it to the textarea
-        const results = `Name: ${name}\nDate of Birth: ${dob}\nAddress: ${address}\nContact Number: ${phone}\nEmail ID: ${email}\nEnglish Marks: ${englishMarks}\nPhysics Marks: ${physicsMarks}\nChemistry Marks: ${chemistryMarks}\nTotal Marks: ${totalMarks}\nPercentage: ${percentage.toFixed(2)}`;
-        resultsTextarea.value = results;
-      });
+        }
     </script>
-  </body>
+    Enter Name: <input type="text" id="num1"><br><br>
+    Enter DOB: <input type="date" id="num2"><br><br>
+    Enter Address: <input type="text" id="num3"><br><br>
+    Enter contact no.: <input type="number" id="num4"><br><br>
+    Enter email id : <input type="email" id="num5"><br><br>
+    Marks English: <input type="number" id="num6"><br><br>
+    Marks Physics: <input type="number" id="num7"><br><br>
+    Enter Chemistry: <input type="number" id="num8"><br><br>
+    <button onclick="func()">Submit</button><br><br>
+    <textarea id="result" readonly rows="15" cols="50"></textarea>
+</body>
 </html>
