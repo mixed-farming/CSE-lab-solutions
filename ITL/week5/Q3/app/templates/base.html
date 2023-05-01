@@ -22,7 +22,7 @@
             else if (n3 == "/") {
                 n4 = n1 / n2;
             }
-            document.getElementById('result').textContent = n4.toPrecision(4);
+            document.getElementById('result').textContent = n4.toPrecision(4);//toPrecision(4) gives the first 4 significant digits; toFixed(4) gives the first 4 decimal places. 
         } 
     </script>
     Enter the first number : <input type="number" id='num1'><br><br>
