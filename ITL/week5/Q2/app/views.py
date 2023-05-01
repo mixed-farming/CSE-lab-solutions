@@ -11,7 +11,7 @@ def select(request):
     doj = request.GET['doj'] 
     year= int(doj[:4]) 
     years_since_joining = current_year - year
-    if years_since_joining>=5: 
+    if years_since_joining>5: 
         n1 = "Congratulations... \nYou are eligible for promotion." 
     else: 
         n1 = "Sorry... \nYou are not eligible for promotion." 
