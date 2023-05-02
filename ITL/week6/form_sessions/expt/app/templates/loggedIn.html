@@ -1,0 +1,9 @@
+<html>
+<body>
+    Welcome <strong>{{username}}</strong>
+    <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
