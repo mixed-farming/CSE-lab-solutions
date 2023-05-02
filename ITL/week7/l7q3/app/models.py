@@ -16,5 +16,5 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=200)
     pdate = models.DateField()
-    authors = models.CharField(max_length=200, default='Manoj')
-    publisher = models.CharField(max_length=200, default="NA")
+    authors = models.ManyToManyField(Author)
+    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
