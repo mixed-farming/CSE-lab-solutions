@@ -1,0 +1,31 @@
+{%load static%}
+<html>
+    <head>
+        <title>Captcha Check</title>
+    </head>
+    <body>
+        <script>
+            var count=1;//global variable
+            function validate(){
+                var n=document.getElementById('inp').value;
+                if(n=='POPH3')
+                {
+                    document.getElementById('msg').textContent="CAPTCHA SUCCESSFUL.";
+                }
+                else if(count<3)
+                {
+                    document.getElementById('msg').textContent="Incorrect Captcha. Try again";
+                    count+=1;
+                }
+                else
+                {
+                    document.getElementById('msg').textContent="CAPTCHA FAILED. You exceeded maximum number of tries.";
+                }
+            }
+        </script>
+        <img src="{% static 'img\captcha.jpeg' %}" alt="captcha"><br>
+        <textarea rows="2" cols="20" id="inp"></textarea><br><br>
+        <button onclick="validate()">Submit</button>
+        <p id="msg"></p>
+    </body>
+</html>
