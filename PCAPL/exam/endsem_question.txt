@@ -1,0 +1,26 @@
+Write a cuda program to take input of a string with multiple words of different lengths, a character ('R'/'L'), a number 'n' and
+by using a 1D grid and 2D block design a functioning kernel which rotates each word in the string sentence 'n' number of times 
+either in right(R) direction or in left(L) direction as specified by user in inputs. Also show the number of words present in the sentence, length of each word and
+the length of the largest word. Use number of words as grid dimension and length of largest word as the number of threads in a block(2D alignment of 
+threads is upto the you. Suppose longest word is of length = 8, block dimension can be either 4*2 or 2*4). Make sure extra threads in every block aren't doing any work.
+
+example:
+1) 
+string: manoj mpi cuda parallel
+character: R
+n=3
+o/p: 
+4 words
+lenghts : 5 3 4 8
+longest word : 8
+string : nojma mpi udac lelparal
+
+2)
+string: how are you
+character: L
+n=2
+o/p: 
+3 words
+lenghts : 3 3 3
+longest word : 3 
+string : who ear uyo
