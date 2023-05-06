@@ -1,0 +1,120 @@
+%%cu
+#include<stdio.h>
+#include "cuda.h"
+#include "cuda_runtime.h"
+
+__device__ __global__   int rowsum[5],colsum[5];
+__global__ void krsum(int *A,int m)
+{
+   // __shared__ int arr[3];
+ 
+    int gtid=blockIdx.x*blockDim.x+threadIdx.x;
+  int ltid=threadIdx.x;
+ //arr[ltid]=A[gtid];
+ //__syncthreads();
+ //printf("inside krsum\n");
+ atomicAdd(&rowsum[blockIdx.x],A[gtid]);
+    
+}
+
+__global__ void kcsum(int *A,int m,int n)
+{
+    int i=threadIdx.x;
+  int k;
+ //printf("inside kcsum\n");
+ for(k=0;k<m;k++)
+ colsum[i]=colsum[i]+A[n*k+i];
+}
+// Each thread performs one pair-wise addition
+__global__ void matmod(int* A, int *B,int m,int n)
+{  
+    int row=blockIdx.y*blockDim.y+threadIdx.y;
+    int col=blockIdx.x*blockDim.x+threadIdx.x;
+  //printf("inside matmod\n");
+ //for(int i=0;i<n;i++)
+ //printf("%d %d",rowsum[i],colsum[i]);
+ if(row <m && col<n)
+ {
+     if(A[row*n+col]%2)
+     {
+        B[row*n+col]=colsum[col];
+     }
+  else
+  B[row*n+col]=rowsum[row];
+
+ }
+ 
+}
+void vecAdd(int* A, int *B,int m,int n)
+{    int size1 = (m*n) * sizeof(int);
+     int sizem=m*sizeof(int);
+     int sizen=n*sizeof(int);
+    //printf("elements m,n are %d%d%d",elements,m,n);
+     int *d_A, *d_B;
+    
+    cudaMalloc((void **) &d_A, size1);
+    cudaMemcpy(d_A, A, size1, cudaMemcpyHostToDevice);
+    cudaMalloc((void **) &d_B, size1);
+    // cudaMalloc((void **) &rowsum, sizem);
+    //cudaMalloc((void **) &colsum, sizen);
+
+   krsum<<<m,n>>>(d_A,m);
+  kcsum<<<1,n>>>(d_A,m,n);
+    int BSIZE=2;
+      // Kernel invocation code
+ dim3 grid(ceil(n/(float)BSIZE),ceil(m/(float)BSIZE),1);
+ dim3 blck(BSIZE,BSIZE,1);
+ printf("grid is %d,%d,%d\n",grid.x,grid.y,grid.z);
+  
+     matmod<<<grid,blck>>> (d_A,d_B,m,n);
+     cudaMemcpy(B, d_B, size1,cudaMemcpyDeviceToHost);
+     // Free device memory for A, B, C
+    cudaFree(d_A); 
+}
+int main()
+{
+// Host data buffers
+
+int *A = NULL;       // Input array
+int *B = NULL;       // Input array
+      // Output array
+// Elements in each array
+ int n=3,m=2;
+ 
+const int elements = m*n; // size of host data buffers
+size_t datasize = sizeof(int)*elements;
+// Dynamically allocate space for input/output host data buffers
+A = (int*)malloc(datasize);
+B = (int*)malloc(datasize);
+int C[m][n];
+// Initialize the input data
+for(int i = 0; i < elements; i++)
+{
+   A[i] = i+2;
+}
+
+ printf("\n");
+vecAdd( A,B,m,n);
+// Verify the output
+bool result = true;
+ int k=0;
+for(int i = 0; i < m; i++)
+{ 
+    for(int j=0;j<n;j++)
+    C[i][j]=B[k++];
+}
+ for(int i = 0; i < m; i++)
+{ 
+    for(int j=0;j<n;j++)
+    printf("%d ",C[i][j]);
+ printf("\n");
+}
+if(result)
+        printf("Output is correct\n");
+ else
+     printf("Output is incorrect\n");
+free(A); free(B); 
+return 0;
+}
+
+

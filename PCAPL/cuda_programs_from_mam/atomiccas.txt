@@ -1,0 +1,55 @@
+%%cu
+#include<stdio.h>
+#include "cuda.h"
+#include "cuda_runtime.h"
+#define BSIZE 5
+
+__global__ void kernel1(float *A,float *B)
+{
+__shared__ float ARR[BSIZE];
+__shared__ int lock;
+ 
+  int ltid=threadIdx.x;
+ int gtid=threadIdx.x+blockDim.x*blockIdx.x;
+ARR[ltid]=A[gtid];
+ __syncthreads();
+ if(ltid==0)
+ {
+    int i=0;
+    lock=1;
+    do
+    {
+        ARR[i]=ARR[i]+1;
+        i=i+1;
+    }while(atomicCAS(&lock,0,1)&& i<BSIZE);
+    lock=0;
+ }
+ 
+if(lock==0)
+ atomicAdd(B,ARR[ltid]);
+   
+  
+ 
+}
+
+int main()
+{
+    float*A,*B,*d_A,*d_B;
+ 
+ 
+ int size=sizeof(float)*10;
+  A=(float *)malloc(size);
+ B=(float*)malloc(sizeof(float));
+ for(int i=0;i<10;i++)
+ {
+     A[i]=i;
+ }
+     cudaMalloc((void **) &d_A, size); 
+       cudaMalloc((void **) &d_B, sizeof(float)); 
+  cudaMemcpy(d_A, A, size, cudaMemcpyHostToDevice);
+ kernel1<<<2,5>>>(d_A,d_B);
+ cudaMemcpy(B, d_B, sizeof(float),cudaMemcpyDeviceToHost);
+//for(int i=0;i<10;i++)
+printf(" the sum is %f ",*B);
+}
+the sum is 55

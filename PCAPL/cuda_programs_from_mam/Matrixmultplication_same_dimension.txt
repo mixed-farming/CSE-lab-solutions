@@ -1,0 +1,100 @@
+%%cu
+
+
+// Matrix multiplication code when each thread is computing each element of the resultant matrix C and dimensions of A and B matrix are of same dimension
+#include<stdio.h>
+#include "cuda.h"
+#include "cuda_runtime.h"
+
+// Each thread performs one pair-wise addition
+__global__ void vecAddKernel(int* A, int *B,int* C,int n)
+{  
+    int row=blockIdx.y*blockDim.y+threadIdx.y;
+    int col=blockIdx.x*blockDim.x+threadIdx.x;
+ int k=0,sum=0;
+ printf("inside kernel");
+ if(threadIdx.x==0)
+ {
+printf(" grid%d %d %d",gridDim.x,gridDim.y,gridDim.z);
+ printf(" block %d %d %d",blockDim.x,blockDim.y,blockDim.z);
+ }
+  //printf("outdie if");
+    if(row<n && col<n)
+ {
+     for(k=0;k<n;k++)
+    sum=sum+A[row*n+k]*B[k*n+col];
+   }
+ C[row*n+col]=sum;
+}
+void vecAdd(int* A, int *B, int* C,int n)
+{    int size1 = (n*n)*sizeof(int);
+
+    //printf("elements m,n are %d%d%d",elements,m,n);
+     int *d_A, *d_B, *d_C;
+    cudaMalloc((void **) &d_A, size1);
+    cudaMemcpy(d_A, A, size1, cudaMemcpyHostToDevice);
+    cudaMalloc((void **) &d_B, size1);
+    cudaMemcpy(d_B, B, size1, cudaMemcpyHostToDevice);
+    cudaMalloc((void **) &d_C, size1);
+      // Kernel invocation code
+    int BSIZE;  
+   BSIZE=2;
+ dim3 blck(BSIZE,BSIZE,1);
+ dim3 grid(ceil(n/(float)BSIZE),ceil(n/(float)BSIZE),1);
+ 
+  printf("grid is %d,%d,%d\n",grid.x,grid.y,grid.z);
+     vecAddKernel<<<grid,blck>>>(d_A, d_B,d_C,n);
+     cudaMemcpy(C, d_C, size1,cudaMemcpyDeviceToHost);
+     // Free device memory for A, B, C
+    cudaFree(d_A); cudaFree (d_C);
+}
+int main()
+{
+// Host data buffers
+
+int *A = NULL;       // Input array
+int *B = NULL;       // Input array
+int *C = NULL;       // Output array
+// Elements in each array
+ int n=3;
+const int elements = n*n; // size of host data buffers
+// Compute the size of the data in bytes
+
+size_t datasize = sizeof(int)*elements;
+
+// Dynamically allocate space for input/output host data buffers
+A = (int*)malloc(datasize);
+B = (int*)malloc(datasize);
+C = (int*)malloc(datasize);
+// Initialize the input data
+for(int i = 0; i < elements; i++)
+{
+   A[i] = i+1;
+}
+ for(int i = 0; i < elements; i++)
+{
+   B[i] = i+1;
+}
+ for(int i = 0; i < elements; i++)
+{ 
+    printf("%d ",A[i]);
+}
+ for(int i = 0; i < elements; i++)
+{ 
+    printf("%d ",B[i]);
+}
+ printf("\n");
+vecAdd( A,B, C,n);
+// Verify the output
+bool result = true;
+for(int i = 0; i < elements; i++)
+{ 
+    printf("%d ",C[i]);
+}
+if(result)
+        printf("Output is correct\n");
+ else
+     printf("Output is incorrect\n");
+free(A); free(B); free(C);
+return 0;
+}

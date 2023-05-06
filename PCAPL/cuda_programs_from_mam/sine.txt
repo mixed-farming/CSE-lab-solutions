@@ -1,0 +1,97 @@
+%%cu
+#include<stdio.h>
+#include "cuda.h"
+#include "cuda_runtime.h"
+__device__ float  sine(float x)
+{
+    float term=x;
+    int n=10,i=1,den;
+ float sinx=term;
+  printf("inside sine");
+ do   
+            {
+                 den = 2*i*(2*i+1);
+                 term = -term * x * x / den;    
+                 sinx = sinx + term;   
+                 i= i + 1;
+            } while(i<n);
+ return sinx;
+     
+}
+__global__ void kernelA(float *A,int n)
+{
+ int i = (threadIdx.x+ blockDim.x* blockIdx.x) ;
+ printf("inside A");
+  if(i<n)
+   A[i]=A[i]*(3.142/180.0) ;
+}
+__global__ void kernelB(float * A, float* B,int n)
+{  
+    int i = (threadIdx.x+ blockDim.x* blockIdx.x) ;
+  printf("inside B");
+   if(i<n)
+   B[i]=sine(A[i]);
+ 
+}
+void sinn(float* A, float* B, int n)
+{    int size = n * sizeof(float);
+
+     float  *d_A;
+ float *d_B;
+    cudaMalloc((void **) &d_A, size);
+    cudaMemcpy(d_A, A, size, cudaMemcpyHostToDevice);
+     kernelA<<<1,32>>> (d_A,n);
+     cudaMemcpy(A, d_A, size,cudaMemcpyDeviceToHost);
+    cudaMalloc((void **)&d_B,size);
+   cudaMemcpy(d_A, A, size, cudaMemcpyHostToDevice);
+    
+     kernelB<<<1,32>>> (d_A, d_B,n);
+     cudaMemcpy(B, d_B, size,cudaMemcpyDeviceToHost);
+     // Free device memory for A, B, C
+    cudaFree(d_A); cudaFree(d_B); ;
+}
+int main()
+{
+    int i;
+ float *A = NULL;       // Input array
+float *B = NULL;       // Input array
+float *C = NULL;       // Output array
+// Elements in each array
+const int elements = 8; // size of host data buffers
+// Compute the size of the data in bytes
+printf(" ele is %d",elements);
+
+size_t datasize = sizeof(float)*elements;
+;
+// Dynamically allocate space for input/output host data buffers
+A = (float*)malloc(datasize);
+B = (float*)malloc(datasize);
+int k=0;
+ A[k]=0;k=k+1;
+  A[k]=30;k=k+1;
+  A[k]=45; k=k+1;
+ A[k]=60; k=k+1;
+  A[k]=90;k=k+1;
+  A[k]=120;k=k+1;
+  A[k]=30;k=k+1;
+ A[k]=10;k=k+1;
+ 
+
+
+ sinn( A, B, elements); 
+ for( i = 0; i < elements; i++)
+{
+    printf("%f ",A[i]);
+}
+// Verify the output
+bool result = true;
+ printf("\n array is ");
+for(int i = 0; i < elements; i++)
+{ 
+    printf(" %f ",B[i]);
+}
+
+
+free(A); free(B);
+return 0;
+}

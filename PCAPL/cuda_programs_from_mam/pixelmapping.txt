@@ -1,0 +1,84 @@
+%%cu
+#include<stdio.h>
+#include "cuda.h"
+#include "cuda_runtime.h"
+
+// Each thread performs one pair-wise addition
+__global__ void vecAddKernel(int* A, int* C, int elements,int m,int n)
+{  
+    int row=blockIdx.y*blockDim.y+threadIdx.y;
+    int col=blockIdx.x*blockDim.x+threadIdx.x;
+ if(threadIdx.x==0)
+ {
+printf(" grid%d %d %d",gridDim.x,gridDim.y,gridDim.z);
+ printf(" block %d %d %d",blockDim.x,blockDim.y,blockDim.z);
+ }
+  //printf("outdie if");
+    if((row<m) && (col<n))
+ {
+     //   printf("insdie if");
+    // printf("%d ",A[row*n+col]);
+    C[row*n+col]=2*A[row*n+col];
+   }
+}
+void vecAdd(int* A, int* C, int elements,int m,int n)
+{    int size = elements * sizeof(int);
+    printf("elements m,n are %d%d%d",elements,m,n);
+     int *d_A,  *d_C;
+    cudaMalloc((void **) &d_A, size);
+    cudaMemcpy(d_A, A, size, cudaMemcpyHostToDevice);
+   
+    cudaMalloc((void **) &d_C, size);
+      // Kernel invocation code
+ dim3 grid(ceil(n/2.0),ceil(m/2.0),1);
+ dim3 blck(2,2,1);
+  
+     vecAddKernel<<<grid,blck>>> (d_A, d_C, elements,m,n);
+     cudaMemcpy(C, d_C, size,cudaMemcpyDeviceToHost);
+     // Free device memory for A, B, C
+    cudaFree(d_A); cudaFree (d_C);
+}
+int main()
+{
+// Host data buffers
+
+int *A = NULL;       // Input array
+int *B = NULL;       // Input array
+int *C = NULL;       // Output array
+// Elements in each array
+ int n=7,m=4;
+const int elements = m*n; // size of host data buffers
+// Compute the size of the data in bytes
+
+size_t datasize = sizeof(int)*elements;
+
+// Dynamically allocate space for input/output host data buffers
+A = (int*)malloc(datasize);
+
+C = (int*)malloc(datasize);
+// Initialize the input data
+for(int i = 0; i < elements; i++)
+{
+   A[i] = i+1;
+}
+ for(int i = 0; i < elements; i++)
+{ 
+    printf("%d ",A[i]);
+}
+ printf("\n");
+vecAdd( A, C, elements,m,n);
+// Verify the output
+bool result = true;
+for(int i = 0; i < elements; i++)
+{ 
+    printf("%d ",C[i]);
+}
+if(result)
+        printf("Output is correct\n");
+ else
+     printf("Output is incorrect\n");
+free(A); free(B); free(C);
+return 0;
+}
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 
+elements m,n are 2847 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 grid4 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 1 block 2 2 12 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 Output is correct

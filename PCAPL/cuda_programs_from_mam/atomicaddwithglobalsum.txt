@@ -1,0 +1,59 @@
+%%cu
+#include<stdio.h>
+#include "cuda.h"
+#include "cuda_runtime.h"
+#define BSIZE 5
+__device__ __global__ __constant__ int code=10;
+__device__ __global__ int sum=0;
+
+__global__ void kernel1(int *A,int *B)
+{
+  
+  
+ int gtindex=threadIdx.x+blockIdx.x*blockDim.x;
+   /*int ltindex=threadIdx.x;
+ int bl=blockIdx.x;
+   __shared__ int share[BSIZE];
+ __shared__ int blcode;
+ blcode=bl+1;
+ share[ltindex]=A[gtindex];
+   
+ __syncthreads();
+ printf(" inside block %d and local thread id %d and its corresponding global thread id is %d\n",bl,ltindex,gtindex);
+   if(ltindex<5)
+   { 
+       if(ltindex>0)
+       B[gtindex]=share[ltindex]+share[ltindex-1]+code+blcode;
+    else
+     B[gtindex]=share[ltindex]+code+blcode;
+    
+   }*/
+ atomicAdd(&sum,A[threadIdx.x]);
+ __syncthreads();
+ //if(gtindex==9)
+ *B=sum;
+ 
+}
+
+int main()
+{
+    int *A,*B,*d_A,*d_B;
+ 
+ 
+ int size=sizeof(int)*10;
+  A=(int *)malloc(size);
+ B=(int *)malloc(sizeof(int));
+ for(int i=0;i<10;i++)
+ {
+     A[i]=i+i;
+ }
+     cudaMalloc((void **) &d_A, size); 
+       cudaMalloc((void **) &d_B, sizeof(int)); 
+  cudaMemcpy(d_A, A, size, cudaMemcpyHostToDevice);
+ kernel1<<<1,10>>>(d_A,d_B);
+ cudaMemcpy(B, d_B, sizeof(int),cudaMemcpyDeviceToHost);
+//for(int i=0;i<10;i++)
+printf("%d ",*B);
+}
+
+o/p 90

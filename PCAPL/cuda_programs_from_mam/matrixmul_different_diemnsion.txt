@@ -1,0 +1,104 @@
+%%cu
+
+// Matrix multiplication code when each thread is computing each element of the resultant matrix C and dimensions of A and B matrix are different. 
+#include<stdio.h>
+#include "cuda.h"
+#include "cuda_runtime.h"
+
+
+__global__ void matmul(int* A, int *B,int* C,int m,int n,int p,int q)
+{  
+    int row=blockIdx.y*blockDim.y+threadIdx.y;
+    int col=blockIdx.x*blockDim.x+threadIdx.x;
+ int k=0,sum=0;
+ printf("inside kernel");
+ if(threadIdx.x==0)
+ {
+printf(" grid%d %d %d",gridDim.x,gridDim.y,gridDim.z);
+ printf(" block %d %d %d",blockDim.x,blockDim.y,blockDim.z);
+ }
+
+    if((row<m && col<q))
+ {
+     for(k=0;k<n;k++)
+    sum=sum+A[row*n+k]*B[k*q+col];
+   }
+ C[row*q+col]=sum;
+}
+void matrix(int* A, int *B, int* C,int m,int n,int p,int q)
+{    int size1 = (m*n) * sizeof(int);
+ int size2 = (p*q) * sizeof(int);
+  int size3 = (m*q) * sizeof(int);
+    //printf("elements m,n are %d%d%d",elements,m,n);
+     int *d_A, *d_B, *d_C;
+    cudaMalloc((void **) &d_A, size1);
+    cudaMemcpy(d_A, A, size1, cudaMemcpyHostToDevice);
+    cudaMalloc((void **) &d_B, size2);
+    cudaMemcpy(d_B, B, size2, cudaMemcpyHostToDevice);
+    cudaMalloc((void **) &d_C, size3);
+      // Kernel invocation code
+
+  int BSIZE=3;
+ dim3 grid((q+BSIZE-1)/BSIZE,(m+BSIZE-1)/BSIZE,1);
+ dim3 blck(BSIZE,BSIZE);
+  
+     matmul<<<grid,blck>>> (d_A, d_B,d_C,m,n,p,q);
+     cudaMemcpy(C, d_C, size3,cudaMemcpyDeviceToHost);
+     // Free device memory for A, B, C
+    cudaFree(d_A); cudaFree (d_C);
+}
+int main()
+{
+// Host data buffers
+
+int *A = NULL;       // Input array
+int *B = NULL;       // Input array
+int *C = NULL;       // Output array
+// Elements in each array
+ int n=3,m=2;
+ int p=3,q=3;
+const int elements = m*n; // size of host data buffers
+// Compute the size of the data in bytes
+const int elements1 = p*q;
+size_t datasize = sizeof(int)*elements;
+size_t datasize1 = sizeof(int)*elements1;
+// Dynamically allocate space for input/output host data buffers
+A = (int*)malloc(datasize);
+B = (int*)malloc(datasize1);
+C = (int*)malloc(sizeof(int)*(m*q));
+// Initialize the input data
+for(int i = 0; i < elements; i++)
+{
+   A[i] = i+1;
+}
+ for(int i = 0; i < elements1; i++)
+{
+   B[i] = i+1;
+}
+ for(int i = 0; i < elements; i++)
+{ 
+    printf("%d ",A[i]);
+}
+ for(int i = 0; i < elements1; i++)
+{ 
+    printf("%d ",B[i]);
+}
+ printf("\n");
+matrix( A,B, C,m,n,p,q);
+// Verify the output
+bool result = true;
+ printf("the o/p is \n");
+for(int i = 0; i < m*q; i++)
+{ 
+    printf("%d ",C[i]);
+}
+if(result)
+        printf("Output is correct\n");
+ else
+     printf("Output is incorrect\n");
+free(A); free(B); free(C);
+return 0;
+}
+1 2 3 4 5 6 1 2 3 4 5 6 7 8 9 
+inside kernelinside kernelinside kernelinside kernelinside kernelinside kernelinside kernelinside kernelinside kernel grid1 1 1 grid1 1 1 grid1 1 1 block 3 3 1 block 3 3 1 block 3 3 1the o/p is 
+30 36 42 66 81 96 Output is correct

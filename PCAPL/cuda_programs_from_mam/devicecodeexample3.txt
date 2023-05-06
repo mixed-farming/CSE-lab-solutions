@@ -1,0 +1,158 @@
+%%cu
+#include<stdio.h>
+#include "cuda.h"
+#include "cuda_runtime.h"
+__host__ __device__ int strlen1(char *A)
+{
+    int i,c=0;
+   for(i=0;A[i]!='\0';i=i+1)
+   {
+      c=c+1; 
+   }
+ return c;
+     
+}
+__global__ void vecAddKernel(char * A, int* B, int* C, int n)
+{  
+    int i = (threadIdx.x+ blockDim.x* blockIdx.x) ;
+   int len;
+    len=strlen1(A);
+    if(i<n)
+    {
+    C[i] = len + B[i];
+  
+   }
+}
+void vecAdd(char* A, int* B, int* C, int n)
+{    int size = n * sizeof(int);
+ int size1=n;
+     char *d_A;
+ int  *d_B, *d_C;
+    cudaMalloc((void **) &d_A, size1);
+    cudaMemcpy(d_A, A, size1, cudaMemcpyHostToDevice);
+    cudaMalloc((void **)&d_B,size);
+    cudaMemcpy(d_B, B, size, cudaMemcpyHostToDevice);
+    cudaMalloc((void **) &d_C, size);
+      // Kernel invocation code
+     vecAddKernel<<<1,32>>>          (d_A, d_B, d_C, n);
+     cudaMemcpy(C, d_C, size,cudaMemcpyDeviceToHost);
+     // Free device memory for A, B, C
+    cudaFree(d_A); cudaFree(d_B); cudaFree (d_C);
+}
+int main()
+{
+// Host data buffers
+
+char*A = NULL;       // Input array
+int *B = NULL;       // Input array
+int *C = NULL;       // Output array
+// Elements in each array
+const int elements = 32; // size of host data buffers
+// Compute the size of the data in bytes
+
+size_t datasize = sizeof(int)*elements;
+size_t datasize1 = 32;
+// Dynamically allocate space for input/output host data buffers
+A = (char*)malloc(datasize1);
+B = (int*)malloc(datasize);
+C = (int*)malloc(datasize);
+// Initialize the input data
+for(int i = 0; i < elements; i++)
+{
+   B[i] = i;
+}
+ 
+ strcpy(A,"Hellohi");
+ printf("%s  len is %d",A, strlen1(A));
+vecAdd( A, B, C, elements);
+// Verify the output
+bool result = true;
+ printf("\n array is ");
+for(int i = 0; i < elements; i++)
+{ 
+    printf(" %d ",C[i]);
+}
+
+
+free(A); free(B); free(C);
+return 0;
+}
+%%cu
+#include<stdio.h>
+#include "cuda.h"
+#include "cuda_runtime.h"
+__host__ __device__ int strlen1(char *A)
+{
+    int i,c=0;
+   for(i=0;A[i]!='\0';i=i+1)
+   {
+      c=c+1; 
+   }
+ return c;
+     
+}
+__global__ void vecAddKernel(char * A, int* B, int* C, int n)
+{  
+    int i = (threadIdx.x+ blockDim.x* blockIdx.x) ;
+   int len;
+    len=strlen1(A);
+    if(i<n)
+    {
+    C[i] = len + B[i];
+  
+   }
+}
+void vecAdd(char* A, int* B, int* C, int n)
+{    int size = n * sizeof(int);
+ int size1=n;
+     char *d_A;
+ int  *d_B, *d_C;
+    cudaMalloc((void **) &d_A, size1);
+    cudaMemcpy(d_A, A, size1, cudaMemcpyHostToDevice);
+    cudaMalloc((void **)&d_B,size);
+    cudaMemcpy(d_B, B, size, cudaMemcpyHostToDevice);
+    cudaMalloc((void **) &d_C, size);
+      // Kernel invocation code
+     vecAddKernel<<<1,32>>>          (d_A, d_B, d_C, n);
+     cudaMemcpy(C, d_C, size,cudaMemcpyDeviceToHost);
+     // Free device memory for A, B, C
+    cudaFree(d_A); cudaFree(d_B); cudaFree (d_C);
+}
+int main()
+{
+// Host data buffers
+
+char*A = NULL;       // Input array
+int *B = NULL;       // Input array
+int *C = NULL;       // Output array
+// Elements in each array
+const int elements = 32; // size of host data buffers
+// Compute the size of the data in bytes
+
+size_t datasize = sizeof(int)*elements;
+size_t datasize1 = 32;
+// Dynamically allocate space for input/output host data buffers
+A = (char*)malloc(datasize1);
+B = (int*)malloc(datasize);
+C = (int*)malloc(datasize);
+// Initialize the input data
+for(int i = 0; i < elements; i++)
+{
+   B[i] = i;
+}
+ 
+ strcpy(A,"Hellohi");
+ printf("%s  len is %d",A, strlen1(A));
+vecAdd( A, B, C, elements);
+// Verify the output
+bool result = true;
+ printf("\n array is ");
+for(int i = 0; i < elements; i++)
+{ 
+    printf(" %d ",C[i]);
+}
+
+
+free(A); free(B); free(C);
+return 0;
+}

@@ -1,0 +1,118 @@
+%%cu
+#include<stdio.h>
+#include "cuda.h"
+#include "cuda_runtime.h"
+#define BSIZE 5
+
+__global__ void kernel1(int *A,int *B,int *C,int wa,int wb)
+{
+
+   int rowid=threadIdx.x+blockIdx.x * blockDim.x;
+   int i,j,sum;
+   for(i=0;i<wa;i++)
+   {
+       sum=0;
+    for(j=0;j<wb;j++)
+    sum=sum+ A[rowid*wa+j]*B[i*wa+j];
+   
+      C[rowid*wb+i]=sum;
+   }
+ 
+}
+
+int main()
+{
+    int *d_A,*d_B,*d_C,i,j;
+ int MA[2][3]={{2,3,1},{4,5,7}},MB[3][3]={{1,8,5},{4,2,7},{9,6,3}};
+ int HA=2,WA=3,HB=3,WB=3;
+ int sizeA=sizeof(int)*6;
+ int sizeB=sizeof(int)*9;
+ int *A=(int *)malloc(6*sizeof(int));
+ int *B=(int *)malloc(9*sizeof(int));
+ int *C=(int *)malloc(6*sizeof(int));
+ int k=0;
+ for(i=0;i<2;i++)
+ {
+     for(j=0;j<3;j++)
+     A[k++]=MA[i][j];
+ }
+ k=0;
+ for( i=0;i<3;i++)
+ {
+     for(j=0;j<3;j++)
+     B[k++]=MB[j][i];
+ }
+ 
+     cudaMalloc((void **) &d_A, sizeA); 
+       cudaMalloc((void **) &d_B, sizeB); 
+  cudaMalloc((void **) &d_C, sizeA); 
+  cudaMemcpy(d_A, A, sizeA, cudaMemcpyHostToDevice);
+  cudaMemcpy(d_B, B, sizeB, cudaMemcpyHostToDevice);
+ kernel1<<<3,3>>>(d_A,d_B,d_C,WA,WB);
+ cudaMemcpy(C, d_C, sizeA,cudaMemcpyDeviceToHost);
+for( i=0;i<6;i++)
+ {
+     
+     printf("%d ",C[i]);
+ }
+ printf("new o/p");
+}%%cu
+#include<stdio.h>
+#include "cuda.h"
+#include "cuda_runtime.h"
+#define BSIZE 5
+
+__global__ void kernel1(int *A,int *B,int *C,int wa,int wb)
+{
+
+   int rowid=threadIdx.x+blockIdx.x * blockDim.x;
+   int i,j,sum;
+   for(i=0;i<wa;i++)
+   {
+       sum=0;
+    for(j=0;j<wb;j++)
+    sum=sum+ A[rowid*wa+j]*B[i*wa+j];
+   
+      C[rowid*wb+i]=sum;
+   }
+ 
+}
+
+int main()
+{
+    int *d_A,*d_B,*d_C,i,j;
+ int MA[2][3]={{2,3,1},{4,5,7}},MB[3][3]={{1,8,5},{4,2,7},{9,6,3}};
+ int HA=2,WA=3,HB=3,WB=3;
+ int sizeA=sizeof(int)*6;
+ int sizeB=sizeof(int)*9;
+ int *A=(int *)malloc(6*sizeof(int));
+ int *B=(int *)malloc(9*sizeof(int));
+ int *C=(int *)malloc(6*sizeof(int));
+ int k=0;
+ for(i=0;i<2;i++)
+ {
+     for(j=0;j<3;j++)
+     A[k++]=MA[i][j];
+ }
+ k=0;
+ for( i=0;i<3;i++)
+ {
+     for(j=0;j<3;j++)
+     B[k++]=MB[j][i];
+ }
+ 
+     cudaMalloc((void **) &d_A, sizeA); 
+       cudaMalloc((void **) &d_B, sizeB); 
+  cudaMalloc((void **) &d_C, sizeA); 
+  cudaMemcpy(d_A, A, sizeA, cudaMemcpyHostToDevice);
+  cudaMemcpy(d_B, B, sizeB, cudaMemcpyHostToDevice);
+ kernel1<<<3,3>>>(d_A,d_B,d_C,WA,WB);
+ cudaMemcpy(C, d_C, sizeA,cudaMemcpyDeviceToHost);
+for( i=0;i<6;i++)
+ {
+     
+     printf("%d ",C[i]);
+ }
+ printf("new o/p");
+}
+23 28 34 87 84 76 
