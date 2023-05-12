@@ -25,5 +25,3 @@ conn.send(str(esum).encode())
 conn.send(str(osum).encode())
 conn.close()
 s.close()
-
-
