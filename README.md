@@ -55,7 +55,7 @@ Lanaguage : ARM assembly, Embedded C<br>
 Credit : 1<br>
 
 #### LPC_1768_development_kit :
-<p align="left"><img width="50%" height="50%" src="https://user-images.githubusercontent.com/94393300/195184215-f5ca520b-62eb-43a0-8f32-dcf0972d781d.jpg" alt="Human audible range" />
+<p align="left"><img width="50%" height="50%" src="https://user-images.githubusercontent.com/94393300/195184215-f5ca520b-62eb-43a0-8f32-dcf0972d781d.jpg" alt="LPC kit" />
 
 
 ### _Database Systems Lab (DBS) :_ 
