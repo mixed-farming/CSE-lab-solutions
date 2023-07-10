@@ -1,206 +1,230 @@
-/*Its just partial code with bugs. Come up with pull request if you fix it :)*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-typedef struct Epassenger
+
+typedef struct Passenger 
 {
-    char name[100];
-    long int phnum;
-    char food;
-} Epassenger;
-typedef struct Cpassenger
+    char name[50];
+    char mobile_number[15];
+    char food_option;
+} Passenger;
+
+typedef struct Coach 
 {
-    char name[100];
-    long int phnum;
-} Cpassenger;
-typedef struct CCnode *ccptr;
-typedef struct ECnode *ecptr;
-typedef struct CCnode
+    char coach_type[3];
+    char coach_number[4];
+    Passenger passengers[10];
+    struct Coach* next;
+} Coach;
+
+typedef struct Train 
 {
-    int vacant;
-    int coachnum;
-    Cpassenger p;
-    ccptr nextc;
-    ecptr nexte;
-} CCnode;
-typedef struct ECnode
+    Coach* header;
+    int cc_coaches;
+    int ec_coaches;
+    Coach* tail_cc;
+    Coach* tail_ec;
+} Train;
+
+Passenger create_passenger(char name[], char mobile_number[], char food_option) 
 {
-    int vacant;
-    int coachnum;
-    Epassenger E;
-    ecptr nexte;
-    ccptr nextc;
-} ECnode;
-typedef struct engine *headptr;
-typedef struct header
+    Passenger passenger;
+    strcpy(passenger.name, name);
+    strcpy(passenger.mobile_number, mobile_number);
+    passenger.food_option = food_option;
+    return passenger;
+}
+
+Coach* create_coach(char coach_type[], char coach_number[]) 
 {
-    char myname[100];
-    long int reg_no;
-    int cc;
-    int ec;
-    ecptr nexte;
-    ccptr nextc;
-} header;
-void insertC(ccptr cp, headptr eng)
+    Coach* coach = (Coach*)malloc(sizeof(Coach));
+    strcpy(coach->coach_type, coach_type);
+    strcpy(coach->coach_number, coach_number);
+    coach->next = NULL;
+    return coach;
+}
+
+void display_chart(Train* train) 
 {
-    ccptr temp;
-    temp = (ccptr)malloc(sizeof(struct CCnode));
-    printf("Enter name\n");
-    char name[100];
-    scanf("%s", name);
-    printf("Enter mobile number\n");
-    long int phnum;
-    scanf("%ld", &phnum);
-    strcpy((temp->p).name, name);
-    (temp->p).phnum = phnum;
-    printf("Enter the coach number\n");
-    int cnum;
-    scanf("%d", &cnum);
-    temp->coachnum = cnum;
-    temp->nextc = NULL;
-    temp->nexte = NULL;
-    if (eng->nextc == NULL)
+    Coach* current = train->header->next;
+    printf("=== Chart ===\n");
+    while (current != NULL) 
     {
-        eng->nextc = temp;
-    }
-    else
-    {
-        ccptr last;
-        last = eng;
-        while (last->ccptr != NULL)
+        
+        if (strcmp(current->coach_type, "CC") == 0) 
         {
-            last = last->nextc;
+            for (int i = 0; i < 10; i++) 
+            {
+                if (strlen(current->passengers[i].name) > 0) 
+                {
+                    printf("Coach: %s, Type: %s, Name: %s, Mobile: %s\n",
+                           current->coach_number, current->coach_type,
+                           current->passengers[i].name, current->passengers[i].mobile_number);
+                }
+            }
         }
-        last->nextc = temp
-    }
-    temp->vacant--;
-}
-void insertE(ccptr cp3)
-{
-    ecptr temp;
-    temp = (ecptr)malloc(sizeof(struct ECnode));
-    printf("Enter name\n");
-    char name[100];
-    scanf("%s", name);
-    printf("Enter mobile number\n");
-    long int phnum;
-    scanf("%ld", &phnum);
-    char food;
-printf("Enter V for vegetarian food choice and N for non-vegetarian food 
-choice\n");
-scanf("%c",&food);
-strcpy((temp->p).name , name);
-(temp->p).phnum = phnum;
-(temp->p).food = food;
-printf("Enter the coach number\n");
-int cnum;
-scanf("%d",&cnum);
-temp->coachnum = cnum;
-temp->nextc=NULL;
-temp->nexte=NULL;
-if(cp3->nexte == NULL){
-        cp3->nexte = temp;
-}
-else{
-        ecptr last;
-        last = cp3;
-        while (last->nexte != NULL)
+            
+        else if (strcmp(current->coach_type, "EC") == 0) 
         {
-            last = last->nexte;
+            for (int i = 0; i < 5; i++) 
+            {
+                if (strlen(current->passengers[i].name) > 0)
+                {
+                    printf("Coach: %s, Type: %s, Name: %s, Mobile: %s, Food: %c\n",
+                           current->coach_number, current->coach_type,
+                           current->passengers[i].name, current->passengers[i].mobile_number,
+                           current->passengers[i].food_option);
+                }
+            }
         }
-        last->nexte = temp;
-}
-}
-void display(headptr eng)
-{
-    ccptr temp1;
-    ecptr temp2;
-    temp1 = eng->nextc;
-    while (temp1)
-    {
-        printf("Coach number is %d\n", temp1->coachnum);
-        printf("Passenger name is %s\n", (temp1->p).name);
-        printf("Passenger mobile number is %ld\n", (temp1->p).phnum);
-        temp1 = temp1->nextc;
-    }
-    while (temp2)
-    {
-        printf("Coach number is %d\n", temp2->coachnum);
-        printf("Passenger name is %s\n", (temp2->p).name);
-        printf("Passenger mobile number is %ld\n", (temp2->p).phnum);
-        printf("Passenger food choice is %c\n", (temp2->p).food);
-        temp2 = temp2->nextc;
+        current = current->next;
     }
 }
-void departureCC(header engine)
+
+void book_seat(Train* train) 
 {
-    if (vacant == 0)
-        free(cc);
-    ccptr temp;
-    int count = 0;
-    if (engine->ccptr)
-        temp = engine->ccptr;
-    ccptr t = temp;
-    else
+    char coach_type[3];
+    printf("Enter coach type (CC/EC): ");
+    scanf("%s", coach_type);
+    
+    if (strcmp(coach_type, "CC") != 0 && strcmp(coach_type, "EC") != 0) 
     {
-        printf("No departure possible");
+        printf("Invalid coach type.\n");
         return;
     }
-    count++;
-    while (temp->ccptr)
+
+    if (strcmp(coach_type, "CC") == 0) 
     {
-        temp = engine->ccptr;
-        count++;
+        if (train->cc_coaches == 0) 
+        {
+            printf("No more CC coaches available.\n");
+            return;
+        }
+        Coach* coach = create_coach("CC", "CC");
+        sprintf(coach->coach_number, "CC%d", train->cc_coaches);
+        train->cc_coaches--;
+        train->tail_cc->next = coach;
+        train->tail_cc = coach;
     }
-    if (temp->vacant == 1)
+        
+    else 
     {
-        free(temp);
-        count--;
-        while (count--)
-            t = t->ccptr;
-        t->ccptr = NULL;
+        if (train->ec_coaches == 0) 
+        {
+            printf("No more EC coaches available.\n");
+            return;
+        }
+        
+        Coach* coach = create_coach("EC", "EC");
+        sprintf(coach->coach_number, "EC%d", train->ec_coaches);
+        train->ec_coaches--;
+        train->tail_ec->next = coach;
+        train->tail_ec = coach;
     }
-    else
-        temp->vacant++;
+
+    Coach* coach = (strcmp(coach_type, "CC") == 0) ? train->tail_cc : train->tail_ec;
+    int capacity = (strcmp(coach->coach_type, "CC") == 0) ? 10 : 5;
+    for (int i = 0; i < capacity; i++) 
+    {
+        if (strlen(coach->passengers[i].name) == 0) 
+        {
+            char name[50];
+            char mobile_number[15];
+            printf("Enter passenger name: ");
+            scanf("%s", name);
+            printf("Enter passenger mobile number: ");
+            scanf("%s", mobile_number);
+
+            if (strcmp(coach_type, "CC") == 0) 
+            {
+                coach->passengers[i] = create_passenger(name, mobile_number, ' ');
+            }
+                
+            else 
+            {
+                char food_option;
+                printf("Enter food option [V/N]: ");
+                scanf(" %c", &food_option);
+                coach->passengers[i] = create_passenger(name, mobile_number, food_option);
+            }
+            printf("Seat booked successfully.\n");
+            return;
+        }
+    }
+
+    printf("No more seats available in this coach.\n");
 }
-int main()
-{
-    headptr eng;
-    eng->myname = "Manoj M Mallya";
-    eng->reg_no = 200905130;
-    eng->cc = 30;
-    eng->ec = 10;
-    ccptr cptr1;
-    ccptr cptr2;
-    ccptr cptr3;
-    ecptr eptr1;
-    ecptr eptr2;
-    eng->nextc = cptr1;
-    cptr1->nextc = cptr2;
-    cptr2->nextc = cptr3;
-    cptr3->nexte = eptr1;
-    eptr1->nexte = eptr2;
+
+void departure(Train* train) {
+    if (train->header->next == NULL) 
+    {
+        printf("No coaches to detach.\n");
+        return;
+    }
+
+    Coach* detached_coach = train->header->next;
+    train->header->next = detached_coach->next;
+
+    if (strcmp(detached_coach->coach_type, "CC") == 0) 
+    {
+        train->cc_coaches++;
+    }
+    else 
+    {
+        train->ec_coaches++;
+    }
+
+    printf("Coach %s detached from the train.\n", detached_coach->coach_number);
+    
+    free(detached_coach);
+}
+
+int main() {
+    Train goa_express;
+    goa_express.header = create_coach("Engine", "H");
+    goa_express.cc_coaches = 3;
+    goa_express.ec_coaches = 2;
+    goa_express.tail_cc = goa_express.header;
+    goa_express.tail_ec = goa_express.header;
+
     int choice;
-    char coach_type;
-    while (1)
+    
+    do 
     {
-printf("Enter your choice: \n1.Booking \n2.Departure 
-\n3.Charting\n4.Exit\n");
-scanf("%d",&choice);
-switch(choice){
-        case 1:
-printf("Choose coach type, enter E for EC coach and 
-C for CC coach\n");
-scanf("%c",&coach_type);
-if(coach_type == 'C'){
-                insertR(cptr1);
-}
-else{
-}
-case 2: printf("Enter your choice\n1.CC\n2.EC");
-scanf("%d",&choice);
-if()
-}
-    }
+        printf("\n=== Goa Express Menu ===\n");
+        printf("1. Display Chart\n");
+        printf("2. Book Seat\n");
+        printf("3. Departure\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) 
+        {
+            case 1:
+                display_chart(&goa_express);
+                break;
+            case 2:
+                book_seat(&goa_express);
+                break;
+            case 3:
+                departure(&goa_express);
+                break;
+            case 4:
+                printf("Exiting...\n");
+                break;
+            default:
+                printf("Invalid choice. Please try again.\n");
+                break;
+        }
+
+        if (goa_express.cc_coaches == 0 && goa_express.ec_coaches == 0) 
+        {
+            printf("No coaches to detach.\n");
+            choice = 4; // Exit the loop
+        }
+        
+    } while (choice != 4);
+
+    return 0;
 }
