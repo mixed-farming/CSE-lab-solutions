@@ -97,16 +97,19 @@ Credits : 2<br>
 ## _6th Semester :_
 
 ### _Distributed Systems Lab (DSL) :_
-
+Getting hands-on experience with Python programming.<br>
+Concepts: Basics of python language, socket programming, Map-Reduce programs on datasets, clock synchronization, mutual exclusion algorithms, hadoop (local-standalone mode and pseudo-distributed mode) installation followed by problems.<be>
 Language : Python<br>
 Credits : 1<br>
 
 ### _Internet Technologies Lab (ITL) :_
-
+Acquired in-depth understanding of web application architecture.<br>
+Concepts: JQuery, Bootstrap, Python Objects and Classes, Developing and form processing using Django, Databases, RsST API.<br>
 Language : Python<br>
 Credits : 2<br>
 
 ### _Parallel Computer Architecture and Programming Lab (PCAPL) :_
-
+Implementing parallel algorithms using different parallel programming environment.<br>
+Concepts: Point-to-Point and collective communication in MPI, OpenCL programming, CUDA Programming, Image Processing using CUDA<br>
 Language : C<br>
 Credits : 1<br>
