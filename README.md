@@ -1,81 +1,81 @@
 # **CSE-lab-solutions (2020-2024)**
-This repository contains all my lab manuals, codes, documents and endsem questions. These labs were conducted during my B.Tech in CSE (2020-2024)
+This repository contains all my lab manuals, codes, documents, and endsem questions. These labs were conducted during my B.Tech in CSE (2020-2024)
 
 ## _1st/2nd Semester :_
 
-### _Problem Solving Using Computers Lab (PSUC) :_ 
+### _Problem Solving Using Computers Lab (PSUC):_ 
 Basics of computer programming.<br>
-Concepts : Keywords, Loops, Arrays, Strings, Pointers, and Functions.<br>
-Language : C<br>
-Credit : 1<br>
+Concepts: Keywords, Loops, Arrays, Strings, Pointers, and Functions.<br>
+Language: C<br>
+Credit: 1<br>
 
 ##  _3rd Semester :_ 
 
-### _Data Structures and Algorithms Lab (DSAL) :_ 
+### _Data Structures and Algorithms Lab (DSAL):_ 
 Programs with basic concepts of Data Structures.<br>
-Concepts : Pointers, Structures, Recursion, Stacks, Queues, Linked lists, Trees, etc.<br>
-Language : C<br>
-Credit : 1<br>
+Concepts: Pointers, Structures, Recursion, Stacks, Queues, Linked lists, Trees, etc.<br>
+Language: C<br>
+Credit: 1<br>
 
-### _Object Oriented Programming Lab (OOPL) :_  
+### _Object Oriented Programming Lab (OOPL):_  
 Programs utilizing Object Oriented Programming concepts.<br> 
-Concepts : Inheritence, Interfacing, Polymorphism, Multithreading, Generics, Javafx, etc.<br>
-Language : Java<br>
-Credit : 1<br>
+Concepts: Inheritance, Interfacing, Polymorphism, Multithreading, Generics, Javafx, etc.<br>
+Language: Java<br>
+Credit: 1<br>
 
-### _Digital System Design Lab (DSDL) :_ 
+### _Digital System Design Lab (DSDL):_ 
 Programs for logic design.<br>
-Concepts : K-maps, Arithmetic circuits, Multiplexers, Decoders and encoders, Flip-flops and registers, Counters, Simple processor, etc <br>
-Language : Verilog<br>
-Credit : 1<br>
+Concepts: K-maps, Arithmetic circuits, Multiplexers, Decoders and encoders, Flip-flops and registers, Counters, Simple processors, etc. <br>
+Language: Verilog<br>
+Credit: 1<br>
 Software : [Max+ plus 2](https://drive.google.com/file/d/1xIe0Iwcshw5QBu3qQCElQYvg4hfgJ7_F/view)
 Installation guide : [Click here](https://www.youtube.com/watch?v=0nMumibwhHg)
 
-### _Open Source Technologies Lab (OSTL) :_ 
+### _Open Source Technologies Lab (OSTL):_ 
 Introduction to Ubuntu, an open-source software.<br>
-Concepts : Shell Scripting, Debugging, Git, Introduction to LaTeX, HTML, CSS, Javascript, etc.<br>
-Language : Bash, HTML, CSS, Javascript<br>
-Credits : 2<br>
+Concepts: Shell Scripting, Debugging, Git, Introduction to LaTeX, HTML, CSS, Javascript, etc.<br>
+Language: Bash, HTML, CSS, Javascript<br>
+Credits: 2<br>
 
 
 ##  _4th Semester :_ 
 
-### _Design and Analysis of Algorithms Lab (AL) :_ 
+### _Design and Analysis of Algorithms Lab (AL):_ 
 Design and Analysis of some Algorithms and Algorithmic techniques.<br>
-Concepts : Brute force, Decrease & conquer, Divide & conquer, Transform & conquer, Space & time tradeoffs, etc.<br>
-Language : C<br>
-Credit : 1<br>
+Concepts : Brute force, Decrease & conquer, Divide & Conquer, Transform & conquer, Space & time tradeoffs, etc.<br>
+Language: C<br>
+Credit: 1<br>
 
-### _Embedded Systems Lab (ES) :_ 
+### _Embedded Systems Lab (ES):_ 
 These programs are executed using Keil microVision4, NXP, LPC1768 in ARM Assembly Language and Embedded 'C'. <br>
 Concepts : <br>
-i) Introduction to Keil microVision4, Data transfer instrcutions, logical instructions, arithmetic instrcutions, branching, looping, sorting and searching algorithms using registers. <br>
-ii) Interfacing LED to ARM microcontroller, Multiplexed 7-segment display, LCD and keyboard interfacing.<br>
-Lanaguage : ARM assembly, Embedded C<br>
-Credit : 1<br>
+i) Introduction to Keil microVision4, Data transfer instructions, logical instructions, arithmetic instructions, branching, looping, sorting, and searching algorithms using registers. <br>
+ii) Interfacing LED to ARM microcontroller, Multiplexed 7-segment display, LCD, and keyboard interfacing.<br>
+Language: ARM assembly, Embedded C<br>
+Credit: 1<br>
 
 #### LPC_1768_development_kit :
 <p align="left"><img width="50%" height="50%" src="https://user-images.githubusercontent.com/94393300/195184215-f5ca520b-62eb-43a0-8f32-dcf0972d781d.jpg" alt="LPC kit" />
 
 
-### _Database Systems Lab (DBS) :_ 
+### _Database Systems Lab (DBS):_ 
 These SQL Programs were executed on Oracle Database <br>
 Software : [Oracle 11g Express Edition](https://goo.gl/JnzsbF)<br>
 Practice point : [Online SQL Compiler](https://www.tutorialspoint.com/execute_sql_online.php) <br>
-Language : SQL, PL/SQL<br>
-Credits : 2<br>
+Language: SQL, PL/SQL<br>
+Credits: 2<br>
 
 ## _5th Semester :_
 
-### _Operating Systems Lab (OSL) :_
-Programming the concepts of threads, IPC’s and File systems in ‘C’ language.<br>
-Concepts : Working with regular files and directories, Processes and Signals, Programs on Threads, File Systems, Inter-Process-Communications(PIPE, FIFO, Message queue, Shared memory, Deadlock, Locking synchronization), Memory and Data Management, Disk Management.<br>
-Language : C<br>
-Credits : 2<br>
+### _Operating Systems Lab (OSL):_
+Programming the concepts of threads, IPCs, and File systems in ‘C’ language.<br>
+Concepts: Working with regular files and directories, Processes and Signals, Programs on Threads, File Systems, Inter-Process-Communications(PIPE, FIFO, Message queue, Shared memory, Deadlock, Locking synchronization), Memory and Data Management, Disk Management.<br>
+Language: C<br>
+Credits: 2<br>
 
-### _Computer Networks Lab (CNL) :_
+### _Computer Networks Lab (CNL):_
 Programs on computer networking.<br>
-Concepts : Socket programming using TCP(iterative & concurrent) & UDP, Network data analysis using Wireshark and tcpdump, Computer network design hub/switch/router in GNS3, Study of DNS and DHCP, Introduction to NS2.<br>
+Concepts: Socket programming using TCP(iterative & concurrent) & UDP, Network data analysis using Wireshark and tcpdump, Computer network design hub/switch/router in GNS3, Study of DNS and DHCP, Introduction to NS2.<br>
 Softwares : <br>
 i) Wireshark -> 
    Open source packet analyzer : [Click here](https://www.wireshark.org/download.html) <br>
@@ -86,31 +86,39 @@ ii) GNS3 - Graphical Network Simulator-3 ->
    Router image : [Click here](https://drive.google.com/file/d/1vEeLDEF8njWWxfosJS0eA0lqpIxxLfWP/view?usp=sharing) <br>
 iii) NS2 ->
    Installation guide : [Click here](https://www.youtube.com/watch?v=tH0yrJdovWM) <br>
-Language : C<br>
-Credits : 2<br>
+Language: C<br>
+Credits: 2<br>
 
-### _Compiler Design Lab (CDL) :_ 
+### _Compiler Design Lab (CDL):_ 
 This lab consists of basic File handling operations, preliminary scanning applications, construction of token generator and symbol table, introduction to Flex and Bison, and Recursive decent parser for the C programming language.<br>
-Language : C<br>
-Credits : 2<br>
+Language: C<br>
+Credits: 2<br>
 
 ## _6th Semester :_
 
-### _Distributed Systems Lab (DSL) :_
+### _Distributed Systems Lab (DSL):_
 Hands-on experience with Python programming.<br>
-Concepts: Basics of python language, socket programming, Map-Reduce programs on datasets, clock synchronization, mutual exclusion algorithms, hadoop (local-standalone mode and pseudo-distributed mode) installation followed by problems.<be>
-Language : Python<br>
-Credits : 1<br>
+Concepts: Basics of Python language, socket programming, Map-Reduce programs on datasets, clock synchronization, mutual exclusion algorithms, hadoop (local-standalone mode and pseudo-distributed mode) installation followed by problems.<be>
+Language: Python<br>
+Credits: 1<br>
 
-### _Internet Technologies Lab (ITL) :_
+### _Internet Technologies Lab (ITL):_
 Understanding of web application architecture.<br>
 Concepts: JQuery, Bootstrap, Python Objects and Classes, Developing and form processing using Django, Databases, RsST API.<br>
-Language : Python<br>
-Credits : 2<br>
+Language: Python<br>
+Credits: 2<br>
 
-### _Parallel Computer Architecture and Programming Lab (PCAPL) :_
-Implementing parallel algorithms using different parallel programming environment.<br>
+### _Parallel Computer Architecture and Programming Lab (PCAPL):_
+Implementing parallel algorithms using different parallel programming environments.<br>
 Concepts: Point-to-Point and collective communication in MPI, OpenCL programming, CUDA Programming, Image processing using CUDA.<br>
-Practice point for CUDA: [Setting up CUDA on google colab](https://www.geeksforgeeks.org/how-to-run-cuda-c-c-on-jupyter-notebook-in-google-colaboratory/) <br>
-Language : C<br>
-Credits : 1<br>
+Practice point for CUDA: [Setting up CUDA on Google Colab](https://www.geeksforgeeks.org/how-to-run-cuda-c-c-on-jupyter-notebook-in-google-colaboratory/) <br>
+Language: C<br>
+Credits: 1<be>
+
+## _7th Semester_:
+
+### _iPhone Operating System Lab (iOSL):_
+It was opted as a program elective(PE-VI). <br>
+Concept(s): iOS App Development <br>
+Language: Swift <br>
+Credits: 3 <br>
