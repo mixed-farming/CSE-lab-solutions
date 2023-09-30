@@ -1,5 +1,29 @@
+<a name="readme-top"></a>
 # **CSE-lab-solutions (2020-2024)**
-This repository contains all my lab manuals, codes, documents, and endsem questions. These labs were conducted during my B.Tech in CSE (2020-2024)
+This repository contains all my lab manuals, codes, documents, and endsem questions. These labs were conducted during my B.Tech in CSE (2020-2024) <br>
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#1st sem">1st/2nd Semester</a>
+    </li>
+     <li>
+      <a href="#3rd sem">3rd Semester</a>
+    </li>
+     <li>
+      <a href="#4th sem">4th Semester</a>
+    </li>
+     <li>
+      <a href="#5th sem">5th Semester</a>
+    </li>
+     <li>
+      <a href="#6th sem">6th Semester</a>
+    </li>
+     <li>
+      <a href="#7th sem">7th Semester</a>
+    </li>
+  </ol> 
+</details>
 
 ## _1st/2nd Semester :_
 
@@ -115,10 +139,12 @@ Practice point for CUDA: [Setting up CUDA on Google Colab](https://www.geeksforg
 Language: C<br>
 Credits: 1<be>
 
-## _7th Semester_:
+## _7th Semester :_
 
 ### _iPhone Operating System Lab (iOSL):_
 It was opted as a program elective(PE-VI). <br>
 Concept(s): iOS App Development <br>
 Language: Swift <br>
 Credits: 3 <br>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
