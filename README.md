@@ -1,29 +1,6 @@
 <a name="readme-top"></a>
 # **CSE-lab-solutions (2020-2024)**
 This repository contains all my lab manuals, codes, documents, and endsem questions. These labs were conducted during my B.Tech in CSE (2020-2024) <br>
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#1st/2nd semester">1st/2nd Semester</a>
-    </li>
-     <li>
-      <a href="#3rd semester">3rd Semester</a>
-    </li>
-     <li>
-      <a href="#4th semester">4th Semester</a>
-    </li>
-     <li>
-      <a href="#5th semester">5th Semester</a>
-    </li>
-     <li>
-      <a href="#6th semester">6th Semester</a>
-    </li>
-     <li>
-      <a href="#7th semester">7th Semester</a>
-    </li>
-  </ol> 
-</details>
 
 ## _1st/2nd Semester :_
 
