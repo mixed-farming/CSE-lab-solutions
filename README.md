@@ -110,7 +110,7 @@ Credits : 2<br>
 
 ### _Parallel Computer Architecture and Programming Lab (PCAPL) :_
 Implementing parallel algorithms using different parallel programming environment.<br>
-Concepts: Point-to-Point and collective communication in MPI, OpenCL programming, CUDA Programming, Image processing using CUDA.<be>
-Practice point for CUDA: [Setting up CUDA on google colab](https://www.geeksforgeeks.org/how-to-run-cuda-c-c-on-jupyter-notebook-in-google-colaboratory/)
+Concepts: Point-to-Point and collective communication in MPI, OpenCL programming, CUDA Programming, Image processing using CUDA.<br>
+Practice point for CUDA: [Setting up CUDA on google colab](https://www.geeksforgeeks.org/how-to-run-cuda-c-c-on-jupyter-notebook-in-google-colaboratory/) <br>
 Language : C<br>
 Credits : 1<br>
