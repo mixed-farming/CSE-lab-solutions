@@ -5,22 +5,22 @@ This repository contains all my lab manuals, codes, documents, and endsem questi
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#1st sem">1st/2nd Semester</a>
+      <a href="#1st/2nd semester">1st/2nd Semester</a>
     </li>
      <li>
-      <a href="#3rd sem">3rd Semester</a>
+      <a href="#3rd semester">3rd Semester</a>
     </li>
      <li>
-      <a href="#4th sem">4th Semester</a>
+      <a href="#4th semester">4th Semester</a>
     </li>
      <li>
-      <a href="#5th sem">5th Semester</a>
+      <a href="#5th semester">5th Semester</a>
     </li>
      <li>
-      <a href="#6th sem">6th Semester</a>
+      <a href="#6th semester">6th Semester</a>
     </li>
      <li>
-      <a href="#7th sem">7th Semester</a>
+      <a href="#7th semester">7th Semester</a>
     </li>
   </ol> 
 </details>
