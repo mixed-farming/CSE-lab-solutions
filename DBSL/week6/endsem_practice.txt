@@ -1,0 +1,311 @@
+DECLARE
+x NUMBER := 0;
+BEGIN
+LOOP
+DBMS_OUTPUT.PUT_LINE ('Inside loop: x = ' || 
+ x);
+x := x + 1;
+IF x >= 3 THEN EXIT;
+END IF;
+END LOOP;
+--After EXIT, control resumes here
+DBMS_OUTPUT.PUT_LINE(' After loop: x = ' || TO_CHAR(x));
+END;
+
+DECLARE
+x NUMBER := 0;
+BEGIN
+WHILE x < 4
+ LOOP
+DBMS_OUTPUT.PUT_LINE ('Inside loop: x = ' ||
+ TO_CHAR(x));
+X := x + 1;
+ END LOOP;
+END;
+
+BEGIN
+DBMS_OUTPUT.PUT_LINE ('lower_bound < upper_bound');
+FOR i IN reverse 1..3 LOOP
+DBMS_OUTPUT.PUT_LINE (i);
+END LOOP;
+DBMS_OUTPUT.PUT_LINE ('lower_bound = upper_bound');
+FOR i IN 2..2 LOOP
+DBMS_OUTPUT.PUT_LINE (i);
+END LOOP;
+DBMS_OUTPUT.PUT_LINE ('lower_bound > upper_bound');
+FOR i IN reverse 3..1 LOOP
+DBMS_OUTPUT.PUT_LINE (i);
+END LOOP;
+END;
+/
+
+begin
+for i in 1..10
+loop
+if i > 5 then
+dbms_output.put_line('loop exceeded 5');
+exit;
+else 
+dbms_output.put_line('loop in '||i);
+end if;
+end loop;
+end;
+
+begin
+for i in 1..10
+loop
+if i mod 2 = 1 then
+dbms_output.put(i||' ');
+end if;
+end loop;
+dbms_output.put_line(' ');
+end;
+
+begin
+for i in 1..10
+loop
+if i mod 2 = 1 then
+dbms_output.put_line(i);
+end if;
+end loop;
+end;
+
+declare 
+x numeric(10,0) ;
+temp numeric(10,0);
+result numeric(10,0) := 0;
+begin
+x := '&x';
+temp := x;
+--dbms_output.put_line('The number is : '||temp);
+for i in 1..10
+loop
+if temp>0 then
+result := result*10 + (temp mod 10);
+temp := floor(temp/10);
+else
+dbms_output.put_line('The reversed number is : '||result);
+exit;
+end if;
+end loop;
+dbms_output.put_line(' ');
+end;
+
+declare 
+x varchar(10) ;
+len number(10);
+result varchar(10);
+begin
+x := '&x';
+len := length(x);
+for i in reverse 1..len
+loop
+result := result || Substr(x,i,1);
+end loop;
+dbms_output.put_line('Reverse of the given string is '||result);
+end;
+
+declare 
+x number(4);
+begin
+x := '&x';
+if x mod 4 = 0 and x mod 100 <> 0 or x mod 400 = 0 then
+dbms_output.put_line('It is a leap year.');
+else
+dbms_output.put_line('It is not a leap year.');
+end if;
+end;
+
+DECLARE
+ records StudentTable.rollNo%rowTYPE;
+BEGIN
+ records.roll_number:='&r';
+ select gpa into records.score from StudentTable where rollNo=records.roll_number;
+ dbms_output.put_line(records.score);
+END;
+/
+
+begin
+dbms_output.put_line('Square root of 6561 is : '||sqrt(6561));
+end;
+/
+
+declare
+x number := 0 ;
+begin 
+for i in 1..100
+loop
+<<returns>>
+dbms_output.put_line('i love you manu');
+--x := x + 1;
+if x > 5 then
+exit;
+end if;
+--goto returns;
+end loop;
+dbms_output.put_line(' ');
+end;
+
+CREATE OR REPLACE FUNCTION square(num INTEGER)
+RETURN INTEGER
+AS
+ sq INTEGER;
+BEGIN
+ sq := num * num;
+RETURN sq;
+END;
+/
+DECLARE
+ num INTEGER;
+BEGIN
+ num := '&number';
+ DBMS_OUTPUT.PUT_LINE('Square of ' || num || ' is ' || square(num));
+END;
+
+DECLARE
+ --Multiple_Instructor Exception;
+ inst instructor%ROWTYPE;
+ inp instructor.name%TYPE;
+ n number(10);
+BEGIN
+inp := '&name';
+select count(id) into n from instructor group by name having name=inp;
+/*IF n>1 THEN
+ RAISE Multiple_Instructor;
+ELSIF n=1 THEN*/
+ select * into inst from instructor where instructor.name = inp;
+ dbms_output.put_line(inst.id ||' '|| inst.name ||' '|| inst.dept_name ||'
+'|| inst.salary);
+--ELSE
+ --RAISE NO_DATA_FOUND;
+--END IF;
+--EXCEPTION
+--WHEN Multiple_Instructor THEN
+-- dbms_output.put_line('Duplicate names found!');
+--WHEN NO_DATA_FOUND THEN
+-- dbms_output.put_line('Instructor not found!');
+END;
+/
+
+DECLARE
+ Out_of_range Exception;
+ roll_no StudentTable.rollNo%TYPE;
+ score StudentTable.gpa%TYPE;
+BEGIN
+roll_no := 1;
+while(roll_no<6)
+LOOP
+IF roll_no > 4 THEN
+ EXIT;
+END IF;
+select gpa into score from StudentTable where rollNo=roll_no;
+IF score between 0 and 4 THEN
+ update StudentTable set LetterGrade='F' where rollNo=roll_no;
+ELSIF score between 4 and 5 THEN
+ update StudentTable set LetterGrade='E' where rollNo=roll_no;
+ELSIF score between 5 and 6 THEN
+ update StudentTable set LetterGrade='D' where rollNo=roll_no;
+ELSIF score between 6 and 7 THEN
+ update StudentTable set LetterGrade='C' where rollNo=roll_no;
+ELSIF score between 7 and 8 THEN
+ update StudentTable set LetterGrade='B' where rollNo=roll_no;
+ELSIF score between 8 and 9 THEN
+ update StudentTable set LetterGrade='A' where rollNo=roll_no;
+ELSIF score between 9 and 10 THEN
+ update StudentTable set LetterGrade='A+' where rollNo=roll_no;
+ELSE
+ RAISE Out_of_range;
+END IF;
+roll_no := roll_no + 1;
+END LOOP;
+EXCEPTION
+WHEN Out_of_range THEN
+ dbms_output.put_line('GPA is out of range!');
+END;
+/
+
+create or replace function summ(x number,y number) 
+return number as 
+s number;
+begin
+s := x+y;
+return s;
+end;
+ /
+
+create or replace function difference(x number,y number) 
+return number as 
+s number;
+begin
+s := x-y;
+return s;
+end;
+ /
+
+create or replace function product(x number,y number) 
+return number as 
+s number;
+begin
+s := x*y;
+return s;
+end;
+ /
+
+create or replace function quotient(x number,y number) 
+return number as 
+s number;
+begin
+s := x/y;
+return s;
+end;
+ /
+
+declare
+a number;
+b number;
+sign varchar(1);
+result number;
+ZERO_DIVIDE EXCEPTION;
+IMPROPER_OP exception;
+begin
+a := '&a';
+b := '&b';
+sign := '&sign';
+if sign = '+' then
+result := summ(a,b);
+dbms_output.put_line(a||' '||sign||' '||b||' = '|| summ(a,b));
+elsif sign = '-' then
+dbms_output.put_line(a||' '||sign||' '||b||' = '|| difference(a,b));
+elsif sign = '*' then
+dbms_output.put_line(a||' '||sign||' '||b||' = '|| product(a,b));
+elsif sign = '/' then
+if b=0 then
+raise ZERO_DIVIDE;
+end if;
+dbms_output.put_line(a||' '||sign||' '||b||' = '|| quotient(a,b) );
+else 
+raise IMPROPER_OP;
+end if;
+EXCEPTION
+when zero_divide then
+dbms_output.put_line('Division by zero is invalid');
+when improper_op then
+dbms_output.put_line('Enter proper arithmetic symbol');
+end;
+/
+
+create table salaryraise(
+ id number(8),
+ raise_date date,
+ raise_amt number(8)
+ );
+declare dt constant varchar(20) := '09/06/2021';
+cursor c is select * from instructor;
+begin
+for ins in c loop
+insert into salaryraise values( ins.id, to_date(dt, 'dd/mm/yyyy'), ins.salary * 0.05 );
+end loop;
+update instructor set salary = salary * 1.05;
+end;
+/
+ 
